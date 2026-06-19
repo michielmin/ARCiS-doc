@@ -1,0 +1,39 @@
+site_name: ARCiS documentation
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  
+theme:
+  name: material
+  custom_dir: overrides
+  logo: ARCiS.png
+  palette:
+    primary: amber
+  features:
+#    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Installation: installing.md
+  - Getting Started: basics.md
+  - Basic Keywords: keywords.md
+  - Core Modules:
+      - Atmospheric Structure: atmosphericsetup.md
+      - Cloud Modeling: cloudmodels.md
+      - Radiative Transfer: radiativetransfer.md
+      - Chemistry: chemistry.md
+      - 3D Modeling: 3Dmodels.md
+      - Retrieval & Bayesian Analysis: retrieval.md
+  - Output Files:
+      - Formats & Interpretation: outputfiles.md
+      - Visualization: visualization.md
+  - References: references.md
