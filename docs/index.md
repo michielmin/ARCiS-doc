@@ -12,6 +12,7 @@ physics and chemistry of exoplanets. It models a planet's atmosphere, cloud stru
 ## Terms of Use
 
 By using ARCiS, you agree to the following:
+
 - If in doubt on any of the results, consult with me. Email: M.Min@sron.nl
 - You cite the appropriate papers listed below.
 
@@ -20,6 +21,7 @@ The most important reason for this is to ensure that ARCiS is used correctly and
 ### Note on Code Contributions
 
 There are several parts of the code from different developers:
+
 - Cloud formation framework: *Ormel and Min (2019)*
 - Optical properties of cloud particles computed using DHS: *Min et al. (2005); Toon and Ackerman (1981)*
 - Refractive indices for the cloud species, see references in *Min et al. (2020)*
