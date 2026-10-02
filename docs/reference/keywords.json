@@ -1,0 +1,3641 @@
+{
+ "top": [
+  {
+   "key": "useomp",
+   "aliases": [
+    "openmp"
+   ],
+   "variable": "useomp",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "compute",
+   "aliases": [],
+   "variable": "(deprecated)",
+   "default": null,
+   "deprecated": true
+  },
+  {
+   "key": "nr",
+   "aliases": [],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "nrsurf",
+   "aliases": [],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "psurf",
+   "aliases": [],
+   "variable": "Psurf",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "nrcloud",
+   "aliases": [
+    "nrhr"
+   ],
+   "variable": "nr_cloud",
+   "default": "10",
+   "deprecated": false
+  },
+  {
+   "key": "nrstepchem",
+   "aliases": [],
+   "variable": "nrstepchem",
+   "default": "1",
+   "deprecated": false
+  },
+  {
+   "key": "mp",
+   "aliases": [],
+   "variable": "Mplanet",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "rp",
+   "aliases": [],
+   "variable": "Rplanet",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "pp",
+   "aliases": [],
+   "variable": "Pplanet",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "loggp",
+   "aliases": [],
+   "variable": "loggPlanet",
+   "default": "2.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "constant_g",
+   "aliases": [],
+   "variable": "constant_g",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fixmmw",
+   "aliases": [],
+   "variable": "fixMMW",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "mmw",
+   "aliases": [],
+   "variable": "MMW0",
+   "default": "2.2",
+   "deprecated": false
+  },
+  {
+   "key": "rstar",
+   "aliases": [],
+   "variable": "Rstar",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "mstar",
+   "aliases": [],
+   "variable": "Mstar",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "tstar",
+   "aliases": [],
+   "variable": "Tstar",
+   "default": "5777e0",
+   "deprecated": false
+  },
+  {
+   "key": "starfile",
+   "aliases": [],
+   "variable": "starfile",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "logg",
+   "aliases": [],
+   "variable": "logg",
+   "default": "4.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "bbstar",
+   "aliases": [],
+   "variable": "blackbodystar",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "dp",
+   "aliases": [
+    "dplanet"
+   ],
+   "variable": "Dplanet0",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "projecteddp",
+   "aliases": [
+    "projecteddplanet"
+   ],
+   "variable": "projectedD",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "retrieval",
+   "aliases": [],
+   "variable": "retrieval",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "mcmclogz",
+   "aliases": [
+    "domcmclogz",
+    "computelogz"
+   ],
+   "variable": "doMCMClogZ",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "doscaler",
+   "aliases": [
+    "scaler"
+   ],
+   "variable": "doscaleR",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "nscaler",
+   "aliases": [],
+   "variable": "nscaleR",
+   "default": "-1",
+   "deprecated": false
+  },
+  {
+   "key": "randomstart",
+   "aliases": [],
+   "variable": "randomstart",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "contrib",
+   "aliases": [
+    "computecontrib"
+   ],
+   "variable": "computecontrib",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "outputopacity",
+   "aliases": [
+    "writeopacity"
+   ],
+   "variable": "outputopacity",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "phase",
+   "aliases": [],
+   "variable": "theta_phase(key%nr1)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "nphase",
+   "aliases": [],
+   "variable": "(deprecated)",
+   "default": null,
+   "deprecated": true
+  },
+  {
+   "key": "cia",
+   "aliases": [],
+   "variable": "\u2192 ReadCIA",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "cutoff",
+   "aliases": [
+    "cutoff_lor"
+   ],
+   "variable": "cutoff_lor",
+   "default": "1e200",
+   "deprecated": false
+  },
+  {
+   "key": "cutoff_abs",
+   "aliases": [],
+   "variable": "cutoff_abs",
+   "default": "1e200",
+   "deprecated": false
+  },
+  {
+   "key": "lam",
+   "aliases": [],
+   "variable": "lam1",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "lmin",
+   "aliases": [],
+   "variable": "lam1",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "lmax",
+   "aliases": [],
+   "variable": "lam2",
+   "default": "15e0",
+   "deprecated": false
+  },
+  {
+   "key": "pmin",
+   "aliases": [],
+   "variable": "pmin",
+   "default": "1e-6",
+   "deprecated": false
+  },
+  {
+   "key": "pmax",
+   "aliases": [],
+   "variable": "pmax",
+   "default": "1e3",
+   "deprecated": false
+  },
+  {
+   "key": "tmin",
+   "aliases": [],
+   "variable": "Tmin",
+   "default": "2.7e0",
+   "deprecated": false
+  },
+  {
+   "key": "tmax",
+   "aliases": [],
+   "variable": "Tmax",
+   "default": "10000e0",
+   "deprecated": false
+  },
+  {
+   "key": "logtprofile",
+   "aliases": [],
+   "variable": "logTprofile",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "taurexprofile",
+   "aliases": [],
+   "variable": "taurexprofile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "taurexsmooth",
+   "aliases": [],
+   "variable": "taurexsmooth",
+   "default": "1.2",
+   "deprecated": false
+  },
+  {
+   "key": "eps",
+   "aliases": [
+    "epsck"
+   ],
+   "variable": "epsCk",
+   "default": "0.25e0",
+   "deprecated": false
+  },
+  {
+   "key": "epslines",
+   "aliases": [
+    "eps_lines"
+   ],
+   "variable": "eps_lines",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "factrw",
+   "aliases": [],
+   "variable": "factRW",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "maxtau",
+   "aliases": [
+    "max_tau"
+   ],
+   "variable": "maxtau",
+   "default": "50e0",
+   "deprecated": false
+  },
+  {
+   "key": "specres",
+   "aliases": [],
+   "variable": "specres",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "specreslr",
+   "aliases": [
+    "specres_lr",
+    "specresrt",
+    "specres_rt"
+   ],
+   "variable": "specres_LR",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "specresdust",
+   "aliases": [],
+   "variable": "(deprecated)",
+   "default": null,
+   "deprecated": true
+  },
+  {
+   "key": "usexs",
+   "aliases": [],
+   "variable": "useXS",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "specresfile",
+   "aliases": [],
+   "variable": "specresfile",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "particledir",
+   "aliases": [
+    "dirparticle"
+   ],
+   "variable": "particledir",
+   "default": "'./Particles/'",
+   "deprecated": false
+  },
+  {
+   "key": "rayleigh",
+   "aliases": [],
+   "variable": "do_rayleigh",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "tpfile",
+   "aliases": [],
+   "variable": "TPfile",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "mixratfile",
+   "aliases": [],
+   "variable": "mixratfile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "gridtpfile",
+   "aliases": [],
+   "variable": "gridTPfile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "maxt",
+   "aliases": [
+    "maxtprofile"
+   ],
+   "variable": "maxTprofile",
+   "default": "1e6",
+   "deprecated": false
+  },
+  {
+   "key": "pswitch",
+   "aliases": [],
+   "variable": "\u2192 ReadPswitch",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "abunswitch",
+   "aliases": [
+    "abun_switch"
+   ],
+   "variable": "\u2192 ReadAbunSwitch",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "background",
+   "aliases": [
+    "backgroundgas"
+   ],
+   "variable": "\u2192 ReadBackgroundgas",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "dotrace",
+   "aliases": [
+    "trace"
+   ],
+   "variable": "\u2192 ReadRaytraceMol",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "isotope",
+   "aliases": [
+    "f_isotope"
+   ],
+   "variable": "\u2192 ReadIsotope",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "setsurfp",
+   "aliases": [
+    "setsurfpressure"
+   ],
+   "variable": "setsurfpressure",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "tp",
+   "aliases": [],
+   "variable": "TP0",
+   "default": "600e0",
+   "deprecated": false
+  },
+  {
+   "key": "dtp",
+   "aliases": [],
+   "variable": "dTP",
+   "default": "0.1",
+   "deprecated": false
+  },
+  {
+   "key": "gamma",
+   "aliases": [
+    "gammat"
+   ],
+   "variable": "gammaT1",
+   "default": "1.58e-1",
+   "deprecated": false
+  },
+  {
+   "key": "kappa",
+   "aliases": [
+    "kappat"
+   ],
+   "variable": "kappaT",
+   "default": "3e-4",
+   "deprecated": false
+  },
+  {
+   "key": "alpha",
+   "aliases": [
+    "alphat"
+   ],
+   "variable": "alphaT",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "beta",
+   "aliases": [
+    "betat"
+   ],
+   "variable": "betaT",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "partprofile",
+   "aliases": [
+    "par_tprofile"
+   ],
+   "variable": "par_tprofile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "grey_isot",
+   "aliases": [],
+   "variable": "grey_isoT",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "ng",
+   "aliases": [],
+   "variable": "ng",
+   "default": "25",
+   "deprecated": false
+  },
+  {
+   "key": "distance",
+   "aliases": [],
+   "variable": "distance",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "cloud",
+   "aliases": [],
+   "variable": "\u2192 ReadCloud",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "cloudoverlap",
+   "aliases": [],
+   "variable": "cloudoverlap",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_offset",
+   "aliases": [],
+   "variable": "Kzz_offset",
+   "default": "1e4",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_max",
+   "aliases": [],
+   "variable": "Kzz_max",
+   "default": "1e12",
+   "deprecated": false
+  },
+  {
+   "key": "complexkzz",
+   "aliases": [],
+   "variable": "complexKzz",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "computekzz",
+   "aliases": [],
+   "variable": "SCKzz",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "convectkzz",
+   "aliases": [],
+   "variable": "convectKzz",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "computeteff",
+   "aliases": [],
+   "variable": "ComputeTeff",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "scattering",
+   "aliases": [],
+   "variable": "scattering",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "scattstar",
+   "aliases": [
+    "starscatt"
+   ],
+   "variable": "scattstar",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "anisoscatt",
+   "aliases": [
+    "anisostar",
+    "anisostarscatt",
+    "anisoscattstar"
+   ],
+   "variable": "anisoscattstar",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "lambert",
+   "aliases": [
+    "lambertsurf",
+    "lambertsurface"
+   ],
+   "variable": "lambertsurface",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "opacitymode",
+   "aliases": [],
+   "variable": "opacitymode",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "np",
+   "aliases": [],
+   "variable": "nPom",
+   "default": "50",
+   "deprecated": false
+  },
+  {
+   "key": "nt",
+   "aliases": [],
+   "variable": "nTom",
+   "default": "100",
+   "deprecated": false
+  },
+  {
+   "key": "opacitydir",
+   "aliases": [],
+   "variable": "opacitydir",
+   "default": "$HOME'/ARCiS/Data/Opacities'",
+   "deprecated": false
+  },
+  {
+   "key": "computet",
+   "aliases": [],
+   "variable": "computeT",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "exp_ad",
+   "aliases": [],
+   "variable": "exp_ad",
+   "default": "7e0/5e0",
+   "deprecated": false
+  },
+  {
+   "key": "useeos",
+   "aliases": [
+    "use_eos"
+   ],
+   "variable": "useEOS",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "useff",
+   "aliases": [
+    "use_ff"
+   ],
+   "variable": "use_ff",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "isofstar",
+   "aliases": [],
+   "variable": "isoFstar",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "forceebalance",
+   "aliases": [],
+   "variable": "forceEbalance",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "teffp",
+   "aliases": [
+    "tplanet"
+   ],
+   "variable": "TeffP",
+   "default": "600e0",
+   "deprecated": false
+  },
+  {
+   "key": "maxiter",
+   "aliases": [],
+   "variable": "maxiter",
+   "default": "6",
+   "deprecated": false
+  },
+  {
+   "key": "miniter",
+   "aliases": [],
+   "variable": "miniter",
+   "default": "3",
+   "deprecated": false
+  },
+  {
+   "key": "epsiter",
+   "aliases": [],
+   "variable": "epsiter",
+   "default": "3e-2",
+   "deprecated": false
+  },
+  {
+   "key": "chemistry",
+   "aliases": [],
+   "variable": "dochemistry",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "diseq",
+   "aliases": [],
+   "variable": "disequilibrium",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "dophotoai",
+   "aliases": [
+    "usephotoai",
+    "photoai"
+   ],
+   "variable": "usePhotoAI",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "ggchem_piter",
+   "aliases": [],
+   "variable": "GGCHEM_P_iter",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "ggchem_tfast",
+   "aliases": [],
+   "variable": "GGCHEM_Tfast",
+   "default": "700e0",
+   "deprecated": false
+  },
+  {
+   "key": "kzz",
+   "aliases": [],
+   "variable": "Kzz",
+   "default": "5e8",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_deep",
+   "aliases": [],
+   "variable": "Kzz_deep",
+   "default": "1e2",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_1bar",
+   "aliases": [
+    "kzz_up"
+   ],
+   "variable": "Kzz_1bar",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_p",
+   "aliases": [
+    "kzz_pow"
+   ],
+   "variable": "Kzz_P",
+   "default": "0.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "kzz_contrast",
+   "aliases": [],
+   "variable": "Kzz_contrast",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "metallicity",
+   "aliases": [],
+   "variable": "metallicity",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "dmetallicity",
+   "aliases": [
+    "dz"
+   ],
+   "variable": "dmetallicity",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "coratio",
+   "aliases": [],
+   "variable": "COratio",
+   "default": "0.5495407855762011",
+   "deprecated": false
+  },
+  {
+   "key": "sioratio",
+   "aliases": [],
+   "variable": "SiOratio",
+   "default": "0.06606931168616334",
+   "deprecated": false
+  },
+  {
+   "key": "noratio",
+   "aliases": [],
+   "variable": "NOratio",
+   "default": "0.13803841820153123",
+   "deprecated": false
+  },
+  {
+   "key": "soratio",
+   "aliases": [],
+   "variable": "SOratio",
+   "default": "0.026915346428939845",
+   "deprecated": false
+  },
+  {
+   "key": "tiscale",
+   "aliases": [],
+   "variable": "TiScale",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "inversecoratio",
+   "aliases": [],
+   "variable": "inverseCOratio",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "elementfile",
+   "aliases": [],
+   "variable": "element_abun_file",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "condensates",
+   "aliases": [],
+   "variable": "condensates",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "elementlist",
+   "aliases": [],
+   "variable": "elements_ARCiS",
+   "default": "'H He C N O Na Mg Si Fe Al Ca Ti S Cl K Li P V F Cr el'",
+   "deprecated": false
+  },
+  {
+   "key": "secondary_atmosphere",
+   "aliases": [],
+   "variable": "secondary_atmosphere",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "waterworld",
+   "aliases": [],
+   "variable": "WaterWorld",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fh2o",
+   "aliases": [],
+   "variable": "fH2O",
+   "default": "2e-4",
+   "deprecated": false
+  },
+  {
+   "key": "simplerainout",
+   "aliases": [],
+   "variable": "dosimplerainout",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "mixp",
+   "aliases": [],
+   "variable": "mixP",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "sinkz",
+   "aliases": [],
+   "variable": "sinkZ",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "alphaz",
+   "aliases": [],
+   "variable": "alphaZ",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "nspike",
+   "aliases": [],
+   "variable": "nspike",
+   "default": "0",
+   "deprecated": false
+  },
+  {
+   "key": "interior_f_core",
+   "aliases": [],
+   "variable": "interior_f_core",
+   "default": "0.325",
+   "deprecated": false
+  },
+  {
+   "key": "interior_f_ice",
+   "aliases": [
+    "interior_f_h2o"
+   ],
+   "variable": "interior_f_ice",
+   "default": "0.005",
+   "deprecated": false
+  },
+  {
+   "key": "rp_from_interior",
+   "aliases": [
+    "interior"
+   ],
+   "variable": "Rp_from_interior",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "dlmie",
+   "aliases": [],
+   "variable": "useDLMie",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "nphot",
+   "aliases": [],
+   "variable": "Nphot0",
+   "default": "2500",
+   "deprecated": false
+  },
+  {
+   "key": "retpar",
+   "aliases": [
+    "fitpar"
+   ],
+   "variable": "\u2192 ReadRetrieval",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "obs",
+   "aliases": [],
+   "variable": "\u2192 ReadObsSpec",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "model_err_abs",
+   "aliases": [],
+   "variable": "model_err_abs(key%nr1)",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "model_err_rel",
+   "aliases": [],
+   "variable": "model_err_rel(key%nr1)",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "fullcovmat",
+   "aliases": [
+    "corrnoise"
+   ],
+   "variable": "fullcovmat",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "par3d",
+   "aliases": [],
+   "variable": "\u2192 ReadPar3D",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "useobsgrid",
+   "aliases": [],
+   "variable": "useobsgrid",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "eps_dup",
+   "aliases": [
+    "duplicate",
+    "eps_duplicate"
+   ],
+   "variable": "eps_dup",
+   "default": "0.1",
+   "deprecated": false
+  },
+  {
+   "key": "logemis",
+   "aliases": [
+    "log_emis"
+   ],
+   "variable": "log_emis",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "massprior",
+   "aliases": [],
+   "variable": "massprior",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "rp_range",
+   "aliases": [],
+   "variable": "Rp_range",
+   "default": "20e0",
+   "deprecated": false
+  },
+  {
+   "key": "mp_prior",
+   "aliases": [],
+   "variable": "Mp_prior",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "dmp_prior",
+   "aliases": [],
+   "variable": "dMp_prior",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "radprior",
+   "aliases": [],
+   "variable": "radprior",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "rp_prior",
+   "aliases": [],
+   "variable": "Rp_prior",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "drp_prior",
+   "aliases": [],
+   "variable": "dRp_prior",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "nboot",
+   "aliases": [],
+   "variable": "nboot",
+   "default": "1",
+   "deprecated": false
+  },
+  {
+   "key": "npew",
+   "aliases": [],
+   "variable": "npew",
+   "default": "-1",
+   "deprecated": false
+  },
+  {
+   "key": "instrument",
+   "aliases": [],
+   "variable": "\u2192 ReadInstrument",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "chimax",
+   "aliases": [
+    "chi2max"
+   ],
+   "variable": "chimax",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "npop",
+   "aliases": [
+    "nburn"
+   ],
+   "variable": "npop",
+   "default": "30",
+   "deprecated": false
+  },
+  {
+   "key": "ngen",
+   "aliases": [],
+   "variable": "ngen",
+   "default": "0",
+   "deprecated": false
+  },
+  {
+   "key": "npost",
+   "aliases": [],
+   "variable": "npost",
+   "default": "1000",
+   "deprecated": false
+  },
+  {
+   "key": "epsinit",
+   "aliases": [
+    "epsinit_mcmc"
+   ],
+   "variable": "epsinit_MCMC",
+   "default": "0.1e0",
+   "deprecated": false
+  },
+  {
+   "key": "gene_cross",
+   "aliases": [],
+   "variable": "gene_cross",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "resume_nest",
+   "aliases": [],
+   "variable": "resume_multinest",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "ins_nest",
+   "aliases": [
+    "is_nest"
+   ],
+   "variable": "importance_nested_sampling",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "consteff",
+   "aliases": [],
+   "variable": "const_eff_multinest",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fmultinest",
+   "aliases": [
+    "efr"
+   ],
+   "variable": "f_multinest",
+   "default": "0.3e0",
+   "deprecated": false
+  },
+  {
+   "key": "tolmultinest",
+   "aliases": [
+    "ftol"
+   ],
+   "variable": "tol_multinest",
+   "default": "0.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "nestupdate",
+   "aliases": [],
+   "variable": "nest_update",
+   "default": "100",
+   "deprecated": false
+  },
+  {
+   "key": "retrievaltype",
+   "aliases": [],
+   "variable": "retrievaltype",
+   "default": "'MN'",
+   "deprecated": false
+  },
+  {
+   "key": "writewolk",
+   "aliases": [],
+   "variable": "writeWolk",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "tauvpoint",
+   "aliases": [],
+   "variable": "tau_Vpoint(key%nr1)",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "tauirpoint",
+   "aliases": [],
+   "variable": "tau_IRpoint(key%nr1)",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "dtvpoint",
+   "aliases": [],
+   "variable": "dT_Vpoint(key%nr1)",
+   "default": "2e0/7e0",
+   "deprecated": false
+  },
+  {
+   "key": "dtirpoint",
+   "aliases": [],
+   "variable": "dT_IRpoint(key%nr1)",
+   "default": "2e0/7e0",
+   "deprecated": false
+  },
+  {
+   "key": "free_tprofile",
+   "aliases": [],
+   "variable": "free_tprofile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "free_fitt",
+   "aliases": [
+    "freetp_fitt",
+    "freept_fitt"
+   ],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "free_fitp",
+   "aliases": [
+    "freetp_fitp",
+    "freept_fitp"
+   ],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "free_fitdt",
+   "aliases": [
+    "freetp_fitdt",
+    "freept_fitdt"
+   ],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "wiggle_err",
+   "aliases": [],
+   "variable": "wiggle_err",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "tpoint",
+   "aliases": [
+    "dtpoint"
+   ],
+   "variable": "dTpoint(key%nr1)",
+   "default": "2e0/7e0",
+   "deprecated": false
+  },
+  {
+   "key": "ppoint",
+   "aliases": [],
+   "variable": "Ppoint(key%nr1)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "ntpoints",
+   "aliases": [
+    "nfreet"
+   ],
+   "variable": "",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "preftpoint",
+   "aliases": [
+    "pref"
+   ],
+   "variable": "PrefTpoint",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "pos_dt_lowest",
+   "aliases": [],
+   "variable": "pos_dT_lowest",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "pos_dt",
+   "aliases": [],
+   "variable": "pos_dT",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "faircoverage",
+   "aliases": [],
+   "variable": "faircoverage",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "speclimits",
+   "aliases": [],
+   "variable": "speclimits",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "adiabatic",
+   "aliases": [
+    "adiabatic_tprofile"
+   ],
+   "variable": "adiabatic_tprofile",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "outflow",
+   "aliases": [],
+   "variable": "outflow",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fday",
+   "aliases": [],
+   "variable": "fDay",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "kxx",
+   "aliases": [],
+   "variable": "Kxx",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "kyy",
+   "aliases": [],
+   "variable": "Kyy",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "vxx",
+   "aliases": [],
+   "variable": "vxx",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "powvxx",
+   "aliases": [
+    "powv",
+    "vxx_pow"
+   ],
+   "variable": "powvxx",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "night2day",
+   "aliases": [],
+   "variable": "night2day",
+   "default": "0.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "fixnight2day",
+   "aliases": [
+    "fixn2d"
+   ],
+   "variable": "fixnight2day",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "pole2eq",
+   "aliases": [],
+   "variable": "pole2eq",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "tidallock",
+   "aliases": [],
+   "variable": "tidallock",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "hotspotshift",
+   "aliases": [],
+   "variable": "hotspotshift0",
+   "default": "-1e5",
+   "deprecated": false
+  },
+  {
+   "key": "n3d",
+   "aliases": [],
+   "variable": "n3D",
+   "default": "10",
+   "deprecated": false
+  },
+  {
+   "key": "par3dsteepness",
+   "aliases": [
+    "steepness3d"
+   ],
+   "variable": "par3Dsteepness",
+   "default": "1e-4",
+   "deprecated": false
+  },
+  {
+   "key": "3daim",
+   "aliases": [
+    "aim3d"
+   ],
+   "variable": "aim3D",
+   "default": "'CONTRAST'",
+   "deprecated": false
+  },
+  {
+   "key": "nnu",
+   "aliases": [
+    "nnustar"
+   ],
+   "variable": "nnu0",
+   "default": "10",
+   "deprecated": false
+  },
+  {
+   "key": "nlong",
+   "aliases": [],
+   "variable": "nlong",
+   "default": "36",
+   "deprecated": false
+  },
+  {
+   "key": "nlatt",
+   "aliases": [],
+   "variable": "nlatt",
+   "default": "19",
+   "deprecated": false
+  },
+  {
+   "key": "nalbedo_iter",
+   "aliases": [],
+   "variable": "nalbedo_iter",
+   "default": "1",
+   "deprecated": false
+  },
+  {
+   "key": "betapow",
+   "aliases": [],
+   "variable": "betapow",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "nrtatm",
+   "aliases": [],
+   "variable": "nRTatm",
+   "default": "-1",
+   "deprecated": false
+  },
+  {
+   "key": "makeai",
+   "aliases": [],
+   "variable": "domakeai",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "parametergridfile",
+   "aliases": [],
+   "variable": "pargridfile",
+   "default": "\" \"",
+   "deprecated": false
+  },
+  {
+   "key": "pew",
+   "aliases": [
+    "postequalweights"
+   ],
+   "variable": "dopostequalweights",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "mapcoratio",
+   "aliases": [],
+   "variable": "mapCOratio",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "nai",
+   "aliases": [],
+   "variable": "nai",
+   "default": "1000",
+   "deprecated": false
+  },
+  {
+   "key": "maxchemtime",
+   "aliases": [],
+   "variable": "maxchemtime",
+   "default": "1e200",
+   "deprecated": false
+  },
+  {
+   "key": "idum",
+   "aliases": [
+    "seed"
+   ],
+   "variable": "idum0",
+   "default": "42",
+   "deprecated": false
+  },
+  {
+   "key": "randomseed",
+   "aliases": [],
+   "variable": "randomseed",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "vfrag",
+   "aliases": [],
+   "variable": "vfrag",
+   "default": "1e200",
+   "deprecated": false
+  },
+  {
+   "key": "parameterfile",
+   "aliases": [
+    "planetparameterfile"
+   ],
+   "variable": "planetparameterfile",
+   "default": "$HOME'/ARCiS/Data/allplanets-ascii.txt'",
+   "deprecated": false
+  },
+  {
+   "key": "planetname",
+   "aliases": [],
+   "variable": "planetname",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "standardstar",
+   "aliases": [],
+   "variable": "standardstarname",
+   "default": "'  '",
+   "deprecated": false
+  },
+  {
+   "key": "trend_compute",
+   "aliases": [
+    "dotrend"
+   ],
+   "variable": "trend_compute",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "do3d",
+   "aliases": [
+    "run3d"
+   ],
+   "variable": "do3D",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "output3d",
+   "aliases": [],
+   "variable": "fulloutput3D",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "deepredist",
+   "aliases": [],
+   "variable": "deepredist",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "deepredisttype",
+   "aliases": [],
+   "variable": "deepredisttype",
+   "default": "'fixbeta'",
+   "deprecated": false
+  },
+  {
+   "key": "tsurface",
+   "aliases": [],
+   "variable": "Tsurface0",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "readfull3d",
+   "aliases": [],
+   "variable": "readFull3D",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "full3ddir",
+   "aliases": [
+    "dirfull3d"
+   ],
+   "variable": "Full3Ddir",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "iwolk",
+   "aliases": [],
+   "variable": "iWolk",
+   "default": "0",
+   "deprecated": false
+  },
+  {
+   "key": "emisspec",
+   "aliases": [],
+   "variable": "emisspec",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "transspec",
+   "aliases": [],
+   "variable": "transspec",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "dotranshide",
+   "aliases": [],
+   "variable": "dotranshide",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "makeimage",
+   "aliases": [],
+   "variable": "makeimage",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "makemovie",
+   "aliases": [],
+   "variable": "makemovie",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "orbit",
+   "aliases": [],
+   "variable": "orbit_P",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "computelc",
+   "aliases": [],
+   "variable": "computeLC",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "vrot",
+   "aliases": [],
+   "variable": "vrot0",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "vrot_max",
+   "aliases": [
+    "vrotmax"
+   ],
+   "variable": "vrot_max",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "nvrot",
+   "aliases": [],
+   "variable": "nvel",
+   "default": "0",
+   "deprecated": false
+  },
+  {
+   "key": "planetform",
+   "aliases": [],
+   "variable": "planetform",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fdust",
+   "aliases": [],
+   "variable": "planetform_fdust",
+   "default": "0.1",
+   "deprecated": false
+  },
+  {
+   "key": "fplanet",
+   "aliases": [],
+   "variable": "planetform_fplan",
+   "default": "0.1",
+   "deprecated": false
+  },
+  {
+   "key": "rstart",
+   "aliases": [
+    "rcore"
+   ],
+   "variable": "planetform_Dmigrate",
+   "default": "15e0",
+   "deprecated": true
+  },
+  {
+   "key": "dmigrate",
+   "aliases": [],
+   "variable": "planetform_Dmigrate",
+   "default": "15e0",
+   "deprecated": false
+  },
+  {
+   "key": "rendmigrate",
+   "aliases": [],
+   "variable": "planetform_Rend",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "mstart",
+   "aliases": [
+    "mcore"
+   ],
+   "variable": "planetform_Mstart",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "sootline",
+   "aliases": [
+    "solidc",
+    "fsolidc"
+   ],
+   "variable": "planetform_SolidC",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "mdotdisk",
+   "aliases": [],
+   "variable": "planetform_Macc",
+   "default": "1e-7",
+   "deprecated": false
+  },
+  {
+   "key": "surfacetype",
+   "aliases": [],
+   "variable": "surfacetype",
+   "default": "'BLACK'",
+   "deprecated": false
+  },
+  {
+   "key": "surfacefile",
+   "aliases": [],
+   "variable": "surfacefile",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "surfacealbedo",
+   "aliases": [],
+   "variable": "surfacealbedo",
+   "default": "0.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "surf_lam",
+   "aliases": [],
+   "variable": "surf_lam1",
+   "default": "0.7",
+   "deprecated": false
+  },
+  {
+   "key": "surf_alb",
+   "aliases": [],
+   "variable": "surf_alb1",
+   "default": "0.15",
+   "deprecated": false
+  },
+  {
+   "key": "fwater",
+   "aliases": [
+    "focean"
+   ],
+   "variable": "f_water",
+   "default": "0.7",
+   "deprecated": false
+  },
+  {
+   "key": "fice",
+   "aliases": [],
+   "variable": "f_ice",
+   "default": "0.05",
+   "deprecated": false
+  },
+  {
+   "key": "fgrass",
+   "aliases": [],
+   "variable": "f_grass",
+   "default": "0.5",
+   "deprecated": false
+  },
+  {
+   "key": "fsnow",
+   "aliases": [],
+   "variable": "f_snow",
+   "default": "0.2",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo",
+   "aliases": [],
+   "variable": "fit_albedo",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_sigma",
+   "aliases": [],
+   "variable": "fit_albedo_sigma",
+   "default": "0.25e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_sigma_gp",
+   "aliases": [],
+   "variable": "fit_albedo_sigma",
+   "default": "0.25e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_gp3_lam",
+   "aliases": [],
+   "variable": "fit_albedo_GP3_lam1",
+   "default": "0.7e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_sigma_step",
+   "aliases": [],
+   "variable": "fit_albedo_sigma_step",
+   "default": "0.25e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_sigma_slope",
+   "aliases": [],
+   "variable": "fit_albedo_sigma_slope",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_l",
+   "aliases": [],
+   "variable": "fit_albedo_l",
+   "default": "0.08e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_l_step",
+   "aliases": [],
+   "variable": "fit_albedo_l_step",
+   "default": "0.02e0",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_slope",
+   "aliases": [],
+   "variable": "fit_albedo_slope",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_gp",
+   "aliases": [],
+   "variable": "fit_albedo_GP3",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_ls",
+   "aliases": [],
+   "variable": "fit_albedo_LS",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_matern",
+   "aliases": [],
+   "variable": "fit_albedo_Matern",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_step",
+   "aliases": [],
+   "variable": "fit_albedo_step",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fit_albedo_remove_lin",
+   "aliases": [],
+   "variable": "fit_albedo_remove_lin",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "lamstep",
+   "aliases": [
+    "lam_step"
+   ],
+   "variable": "lamStep(key%nr1)",
+   "default": "0.7",
+   "deprecated": false
+  },
+  {
+   "key": "lam_re",
+   "aliases": [
+    "l_re",
+    "lamre"
+   ],
+   "variable": "surf_lam1",
+   "default": "0.7",
+   "deprecated": false
+  },
+  {
+   "key": "ncpah",
+   "aliases": [
+    "nc_pah"
+   ],
+   "variable": "nC_PAH",
+   "default": "25",
+   "deprecated": false
+  },
+  {
+   "key": "pah",
+   "aliases": [],
+   "variable": "mixrat_PAH",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "optec",
+   "aliases": [],
+   "variable": "mixrat_optEC0",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "rad_optec",
+   "aliases": [],
+   "variable": "rad_optEC",
+   "default": "0.01",
+   "deprecated": false
+  },
+  {
+   "key": "eg_optec",
+   "aliases": [],
+   "variable": "Eg_optEC",
+   "default": "1.0",
+   "deprecated": false
+  },
+  {
+   "key": "fixmol",
+   "aliases": [],
+   "variable": "\u2192 ReadFixMol",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "photoreac",
+   "aliases": [
+    "photoreactant",
+    "photoprod",
+    "photoproduct"
+   ],
+   "variable": "\u2192 ReadPhotoChem",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "photoeff",
+   "aliases": [],
+   "variable": "PhotoReacts(key%nr1)%f_eff",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "photokappa",
+   "aliases": [
+    "photoscalekappa"
+   ],
+   "variable": "PhotoReacts(key%nr1)%scaleKappa",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "photohaze",
+   "aliases": [],
+   "variable": "PhotoReacts(key%nr1)%haze",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "kappauv",
+   "aliases": [],
+   "variable": "kappaUV0",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "gammauv",
+   "aliases": [],
+   "variable": "gammaUV",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "distruv",
+   "aliases": [],
+   "variable": "distrUV",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "photdestroy",
+   "aliases": [
+    "photodestroy",
+    "pdestroy"
+   ],
+   "variable": "\u2192 ReadPhotoDestroy",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "hydrogenloss",
+   "aliases": [],
+   "variable": "Hydrogenloss",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "rring",
+   "aliases": [],
+   "variable": "Rring",
+   "default": "1.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "drring",
+   "aliases": [],
+   "variable": "dRring",
+   "default": "2.0e0",
+   "deprecated": false
+  },
+  {
+   "key": "tauring",
+   "aliases": [],
+   "variable": "tauRing",
+   "default": "0.5e0",
+   "deprecated": false
+  },
+  {
+   "key": "doring",
+   "aliases": [],
+   "variable": "doRing",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "exozodi",
+   "aliases": [],
+   "variable": "ExoZodi",
+   "default": "3e0",
+   "deprecated": false
+  },
+  {
+   "key": "adderr",
+   "aliases": [],
+   "variable": "ObsSpec(i)%adderr",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "cov_a_loc",
+   "aliases": [],
+   "variable": "Cov_a_loc(key%nr1)",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "cov_l_loc",
+   "aliases": [],
+   "variable": "Cov_L_loc(key%nr1)",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "cov_lam_loc",
+   "aliases": [],
+   "variable": "Cov_lam_loc(key%nr1)",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "h2+he",
+   "aliases": [],
+   "variable": "mixrat(45)",
+   "default": "0e0",
+   "deprecated": false
+  }
+ ],
+ "cloud": [
+  {
+   "key": "type",
+   "aliases": [],
+   "variable": "Cloud(j)%type",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "opacitytype",
+   "aliases": [],
+   "variable": "Cloud(j)%opacitytype",
+   "default": "'AUTO'",
+   "deprecated": false
+  },
+  {
+   "key": "fixcloud",
+   "aliases": [],
+   "variable": "Cloud(j)%fixcloud",
+   "default": "0",
+   "deprecated": false
+  },
+  {
+   "key": "file",
+   "aliases": [],
+   "variable": "Cloud(j)%file",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "fmax",
+   "aliases": [],
+   "variable": "Cloud(j)%fmax",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "blend",
+   "aliases": [],
+   "variable": "Cloud(j)%blend",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "porosity",
+   "aliases": [],
+   "variable": "Cloud(j)%porosity0",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "hazetype",
+   "aliases": [],
+   "variable": "Cloud(j)%hazetype",
+   "default": "'SOOT'",
+   "deprecated": false
+  },
+  {
+   "key": "pressure",
+   "aliases": [
+    "p"
+   ],
+   "variable": "Cloud(j)%P",
+   "default": "1e-4",
+   "deprecated": false
+  },
+  {
+   "key": "dp",
+   "aliases": [],
+   "variable": "Cloud(j)%dP",
+   "default": "10e0",
+   "deprecated": false
+  },
+  {
+   "key": "ptop",
+   "aliases": [],
+   "variable": "Cloud(j)%Pmin",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "pbottom",
+   "aliases": [],
+   "variable": "Cloud(j)%Pmax",
+   "default": "1e10",
+   "deprecated": false
+  },
+  {
+   "key": "ptau",
+   "aliases": [],
+   "variable": "Cloud(j)%Ptau",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "prel",
+   "aliases": [
+    "prelative"
+   ],
+   "variable": "Cloud(j)%Prelative",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "xi",
+   "aliases": [],
+   "variable": "Cloud(j)%xi",
+   "default": "2e0",
+   "deprecated": false
+  },
+  {
+   "key": "dlogp",
+   "aliases": [],
+   "variable": "Cloud(j)%Phi",
+   "default": "2e0",
+   "deprecated": false
+  },
+  {
+   "key": "tau",
+   "aliases": [],
+   "variable": "Cloud(j)%tau",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "lam_ref",
+   "aliases": [],
+   "variable": "Cloud(j)%lref",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "lam_kappa",
+   "aliases": [],
+   "variable": "Cloud(j)%klam",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "pow_kappa",
+   "aliases": [],
+   "variable": "Cloud(j)%kpow",
+   "default": "4e0",
+   "deprecated": false
+  },
+  {
+   "key": "albedo",
+   "aliases": [],
+   "variable": "Cloud(j)%albedo",
+   "default": "0.99e0",
+   "deprecated": false
+  },
+  {
+   "key": "g",
+   "aliases": [],
+   "variable": "Cloud(j)%g0",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "kappa_gauss",
+   "aliases": [],
+   "variable": "Cloud(j)%kappa_Gauss",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "lam_gauss",
+   "aliases": [],
+   "variable": "Cloud(j)%lam_Gauss",
+   "default": "7.0",
+   "deprecated": false
+  },
+  {
+   "key": "dlam_gauss",
+   "aliases": [],
+   "variable": "Cloud(j)%dlam_Gauss",
+   "default": "0.2",
+   "deprecated": false
+  },
+  {
+   "key": "rnuc",
+   "aliases": [],
+   "variable": "Cloud(j)%rnuc",
+   "default": "1e-3",
+   "deprecated": false
+  },
+  {
+   "key": "rnuc_phot",
+   "aliases": [],
+   "variable": "Cloud(j)%rnuc_phot",
+   "default": "1e-3",
+   "deprecated": false
+  },
+  {
+   "key": "pref",
+   "aliases": [],
+   "variable": "Cloud(j)%Pref",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "pow_rad",
+   "aliases": [],
+   "variable": "Cloud(j)%rpow",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "n",
+   "aliases": [],
+   "variable": "Cloud(j)%e1_par",
+   "default": "1.5",
+   "deprecated": false
+  },
+  {
+   "key": "k",
+   "aliases": [],
+   "variable": "Cloud(j)%e2_par",
+   "default": "0.01",
+   "deprecated": false
+  },
+  {
+   "key": "composition",
+   "aliases": [],
+   "variable": "Cloud(j)%composition",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "coverage",
+   "aliases": [],
+   "variable": "Cloud(j)%coverage",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "haze",
+   "aliases": [],
+   "variable": "Cloud(j)%haze",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "condensates",
+   "aliases": [],
+   "variable": "Cloud(j)%condensates",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "condensenak",
+   "aliases": [
+    "naksilicates"
+   ],
+   "variable": "Cloud(j)%condenseNaK",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "freeflow_nuc",
+   "aliases": [],
+   "variable": "Cloud(j)%freeflow_nuc",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "freeflow_con",
+   "aliases": [],
+   "variable": "Cloud(j)%freeflow_con",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "computejn",
+   "aliases": [],
+   "variable": "Cloud(j)%computeJn",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "globalgasmix",
+   "aliases": [],
+   "variable": "Cloud(j)%globalGasMixing",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "mixrat",
+   "aliases": [],
+   "variable": "Cloud(j)%mixrat",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "kzz",
+   "aliases": [],
+   "variable": "Cloud(j)%Kzz",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "globalkzz",
+   "aliases": [],
+   "variable": "Cloud(j)%GlobalKzz",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "sigmadot",
+   "aliases": [
+    "nucleation"
+   ],
+   "variable": "Cloud(j)%Sigmadot",
+   "default": "1e-17",
+   "deprecated": false
+  },
+  {
+   "key": "sigmadot_phot",
+   "aliases": [
+    "nuc_phot"
+   ],
+   "variable": "Cloud(j)%Sigmadot_phot",
+   "default": "1e-17",
+   "deprecated": false
+  },
+  {
+   "key": "xm_bot",
+   "aliases": [],
+   "variable": "Cloud(j)%xm_bot",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "reff",
+   "aliases": [],
+   "variable": "Cloud(j)%reff",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "veff",
+   "aliases": [],
+   "variable": "Cloud(j)%veff",
+   "default": "0.1",
+   "deprecated": false
+  },
+  {
+   "key": "ns",
+   "aliases": [
+    "nsize"
+   ],
+   "variable": "Cloud(j)%nsize",
+   "default": "1",
+   "deprecated": false
+  },
+  {
+   "key": "kappa",
+   "aliases": [],
+   "variable": "Cloud(j)%kappa",
+   "default": "1e-2",
+   "deprecated": false
+  },
+  {
+   "key": "fstick",
+   "aliases": [],
+   "variable": "Cloud(j)%fstick",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "df",
+   "aliases": [
+    "fractaldim"
+   ],
+   "variable": "Cloud(j)%fractalDim",
+   "default": "3e0",
+   "deprecated": false
+  },
+  {
+   "key": "rainout",
+   "aliases": [],
+   "variable": "Cloud(j)%rainout",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "srainout",
+   "aliases": [
+    "sat_bot"
+   ],
+   "variable": "Cloud(j)%Srainout",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "computecryst",
+   "aliases": [],
+   "variable": "Cloud(j)%computecryst",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "coagulation",
+   "aliases": [],
+   "variable": "Cloud(j)%coagulation",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "eqchemboundary",
+   "aliases": [],
+   "variable": "Cloud(j)%EqChemBoundary",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "usefsed",
+   "aliases": [],
+   "variable": "Cloud(j)%usefsed",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "alpha",
+   "aliases": [
+    "fsed_alpha",
+    "fsed"
+   ],
+   "variable": "Cloud(j)%fsed_alpha",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "beta",
+   "aliases": [
+    "fsed_beta"
+   ],
+   "variable": "Cloud(j)%fsed_beta",
+   "default": "1e20",
+   "deprecated": false
+  },
+  {
+   "key": "cryst",
+   "aliases": [],
+   "variable": "Cloud(j)%cryst0",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "x_slider",
+   "aliases": [],
+   "variable": "Cloud(j)%x_slider",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "abun",
+   "aliases": [],
+   "variable": "Cloud(j)%abun(i)",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "xv_bot",
+   "aliases": [],
+   "variable": "Cloud(j)%xv_bot(i)",
+   "default": "1e-5",
+   "deprecated": false
+  },
+  {
+   "key": "rho_mat",
+   "aliases": [],
+   "variable": "Cloud(j)%rho_mat(i)",
+   "default": "3.0",
+   "deprecated": false
+  },
+  {
+   "key": "material",
+   "aliases": [],
+   "variable": "Cloud(j)%material(i)",
+   "default": "'AUTO'",
+   "deprecated": false
+  },
+  {
+   "key": "condensate",
+   "aliases": [],
+   "variable": "Cloud(j)%condensate(i)",
+   "default": "'SILICATE'",
+   "deprecated": false
+  },
+  {
+   "key": "lnkfile",
+   "aliases": [],
+   "variable": "Cloud(j)%lnkfile(i,1)",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "lnkfilex",
+   "aliases": [],
+   "variable": "Cloud(j)%lnkfile(i,1)",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "lnkfiley",
+   "aliases": [],
+   "variable": "Cloud(j)%lnkfile(i,2)",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "lnkfilez",
+   "aliases": [],
+   "variable": "Cloud(j)%lnkfile(i,3)",
+   "default": "' '",
+   "deprecated": false
+  }
+ ],
+ "obs": [
+  {
+   "key": "type",
+   "aliases": [],
+   "variable": "ObsSpec(i)%type",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "file",
+   "aliases": [],
+   "variable": "ObsSpec(i)%file",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "filter",
+   "aliases": [],
+   "variable": "ObsSpec(i)%filter",
+   "default": "' '",
+   "deprecated": false
+  },
+  {
+   "key": "beta",
+   "aliases": [
+    "weight"
+   ],
+   "variable": "ObsSpec(i)%beta",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "scaling",
+   "aliases": [
+    "scale"
+   ],
+   "variable": "ObsSpec(i)%scaling",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "fscale",
+   "aliases": [],
+   "variable": "ObsSpec(i)%fscale",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "dscale",
+   "aliases": [
+    "sigscale"
+   ],
+   "variable": "ObsSpec(i)%dscale",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "iphase",
+   "aliases": [],
+   "variable": "ObsSpec(i)%iphase",
+   "default": "1",
+   "deprecated": false
+  },
+  {
+   "key": "slope",
+   "aliases": [],
+   "variable": "ObsSpec(i)%slope",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "offset",
+   "aliases": [],
+   "variable": "ObsSpec(i)%offset",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "adderr",
+   "aliases": [],
+   "variable": "ObsSpec(i)%adderr",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "c_l",
+   "aliases": [
+    "cov_l"
+   ],
+   "variable": "ObsSpec(i)%Cov_L",
+   "default": "1e-6",
+   "deprecated": false
+  },
+  {
+   "key": "c_a",
+   "aliases": [
+    "cov_a"
+   ],
+   "variable": "ObsSpec(i)%Cov_a",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "c_b",
+   "aliases": [
+    "cov_b",
+    "cov_offset",
+    "c_offset"
+   ],
+   "variable": "ObsSpec(i)%Cov_offset",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "c_s",
+   "aliases": [
+    "cov_s",
+    "cov_scaling",
+    "c_scaling",
+    "cov_scale",
+    "c_scale"
+   ],
+   "variable": "ObsSpec(i)%Cov_scaling",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "cov_a_loc",
+   "aliases": [],
+   "variable": "ObsSpec(i)%Cov_a_loc(key%nr2)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "cov_l_loc",
+   "aliases": [],
+   "variable": "ObsSpec(i)%Cov_L_loc(key%nr2)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "cov_lam_loc",
+   "aliases": [],
+   "variable": "ObsSpec(i)%Cov_lam_loc(key%nr2)",
+   "default": null,
+   "deprecated": false
+  }
+ ],
+ "fitpar": [
+  {
+   "key": "keyword",
+   "aliases": [
+    "parameter"
+   ],
+   "variable": "RetPar(i)%keyword",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "min",
+   "aliases": [
+    "xmin"
+   ],
+   "variable": "RetPar(i)%xmin",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "max",
+   "aliases": [
+    "xmax"
+   ],
+   "variable": "RetPar(i)%xmax",
+   "default": "1e0",
+   "deprecated": false
+  },
+  {
+   "key": "init",
+   "aliases": [
+    "x"
+   ],
+   "variable": "RetPar(i)%x0",
+   "default": "-1e200",
+   "deprecated": false
+  },
+  {
+   "key": "spread",
+   "aliases": [
+    "width",
+    "dx"
+   ],
+   "variable": "RetPar(i)%dx",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "log",
+   "aliases": [
+    "logscale"
+   ],
+   "variable": "RetPar(i)%logscale",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "square",
+   "aliases": [
+    "squarescale"
+   ],
+   "variable": "RetPar(i)%squarescale",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "opacity",
+   "aliases": [
+    "opacitycomp"
+   ],
+   "variable": "RetPar(i)%opacitycomp",
+   "default": ".true.",
+   "deprecated": false
+  },
+  {
+   "key": "increase",
+   "aliases": [],
+   "variable": "RetPar(i)%increase",
+   "default": ".false.",
+   "deprecated": false
+  }
+ ],
+ "instrument": [
+  {
+   "key": "name",
+   "aliases": [],
+   "variable": "instrument(i)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "ntrans",
+   "aliases": [],
+   "variable": "instr_ntrans(i)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "tint",
+   "aliases": [],
+   "variable": "instr_tint(i)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "nobs",
+   "aliases": [
+    "nr"
+   ],
+   "variable": "instr_nobs(i)",
+   "default": null,
+   "deprecated": false
+  }
+ ],
+ "par3d": [
+  {
+   "key": "keyword",
+   "aliases": [
+    "parameter"
+   ],
+   "variable": "Par3D(i)%keyword",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "min",
+   "aliases": [
+    "xmin"
+   ],
+   "variable": "Par3D(i)%xmin",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "max",
+   "aliases": [
+    "xmax"
+   ],
+   "variable": "Par3D(i)%xmax",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "log",
+   "aliases": [
+    "logscale"
+   ],
+   "variable": "Par3D(i)%logscale",
+   "default": ".false.",
+   "deprecated": false
+  },
+  {
+   "key": "relative",
+   "aliases": [
+    "multiply"
+   ],
+   "variable": "Par3D(i)%multiply",
+   "default": ".false.",
+   "deprecated": false
+  }
+ ],
+ "fixmol": [
+  {
+   "key": "name",
+   "aliases": [],
+   "variable": "fixmol_name(i)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "abun",
+   "aliases": [],
+   "variable": "fixmol_abun(i)",
+   "default": null,
+   "deprecated": false
+  },
+  {
+   "key": "p",
+   "aliases": [],
+   "variable": "fixmol_P(i)",
+   "default": null,
+   "deprecated": false
+  }
+ ],
+ "orbit": [
+  {
+   "key": "p",
+   "aliases": [],
+   "variable": "orbit_P",
+   "default": "-1e0",
+   "deprecated": false
+  },
+  {
+   "key": "e",
+   "aliases": [],
+   "variable": "orbit_e",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "omega",
+   "aliases": [],
+   "variable": "orbit_omega",
+   "default": "0e0",
+   "deprecated": false
+  },
+  {
+   "key": "inc",
+   "aliases": [],
+   "variable": "orbit_inc",
+   "default": "90e0",
+   "deprecated": false
+  }
+ ],
+ "molecules": [
+  {
+   "name": "H2O",
+   "mass": 17.8851
+  },
+  {
+   "name": "CO2",
+   "mass": 43.6918
+  },
+  {
+   "name": "O3",
+   "mass": 47.6511
+  },
+  {
+   "name": "N2O",
+   "mass": 43.6947
+  },
+  {
+   "name": "CO",
+   "mass": 27.8081
+  },
+  {
+   "name": "CH4",
+   "mass": 15.9272
+  },
+  {
+   "name": "O2",
+   "mass": 31.7674
+  },
+  {
+   "name": "NO",
+   "mass": 29.7889
+  },
+  {
+   "name": "SO2",
+   "mass": 63.584
+  },
+  {
+   "name": "NO2",
+   "mass": 45.6607
+  },
+  {
+   "name": "NH3",
+   "mass": 16.9072
+  },
+  {
+   "name": "HNO3",
+   "mass": 62.5442
+  },
+  {
+   "name": "OH",
+   "mass": 16.8841
+  },
+  {
+   "name": "HF",
+   "mass": 19.8619
+  },
+  {
+   "name": "HCl",
+   "mass": 36.1973
+  },
+  {
+   "name": "HBr",
+   "mass": 80.3271
+  },
+  {
+   "name": "HI",
+   "mass": 1.007
+  },
+  {
+   "name": "ClO",
+   "mass": 51.076
+  },
+  {
+   "name": "OCS",
+   "mass": 59.6379
+  },
+  {
+   "name": "H2CO",
+   "mass": 29.8088
+  },
+  {
+   "name": "HOCl",
+   "mass": 52.0765
+  },
+  {
+   "name": "N2",
+   "mass": 27.8112
+  },
+  {
+   "name": "HCN",
+   "mass": 26.8304
+  },
+  {
+   "name": "CH3Cl",
+   "mass": 50.1116
+  },
+  {
+   "name": "H2O2",
+   "mass": 33.7598
+  },
+  {
+   "name": "C2H2",
+   "mass": 25.8499
+  },
+  {
+   "name": "C2H6",
+   "mass": 29.8518
+  },
+  {
+   "name": "PH3",
+   "mass": 33.7516
+  },
+  {
+   "name": "COF2",
+   "mass": 65.5261
+  },
+  {
+   "name": "SF6",
+   "mass": 144.9081
+  },
+  {
+   "name": "H2S",
+   "mass": 33.8332
+  },
+  {
+   "name": "HCOOH",
+   "mass": 45.6731
+  },
+  {
+   "name": "HO2",
+   "mass": 32.7593
+  },
+  {
+   "name": "O",
+   "mass": 15.8794
+  },
+  {
+   "name": "ClONO2",
+   "mass": 96.7366
+  },
+  {
+   "name": "NO+",
+   "mass": 29.7813
+  },
+  {
+   "name": "HOBr",
+   "mass": 96.2063
+  },
+  {
+   "name": "C2H4",
+   "mass": 27.8507
+  },
+  {
+   "name": "CH3OH",
+   "mass": 31.7949
+  },
+  {
+   "name": "CH3Br",
+   "mass": 94.2413
+  },
+  {
+   "name": "CH3CN",
+   "mass": 40.7302
+  },
+  {
+   "name": "CF4",
+   "mass": 87.358
+  },
+  {
+   "name": "C4H2",
+   "mass": 49.6543
+  },
+  {
+   "name": "HC3N",
+   "mass": 50.6424
+  },
+  {
+   "name": "H2",
+   "mass": 2.0014
+  },
+  {
+   "name": "CS",
+   "mass": 43.7539
+  },
+  {
+   "name": "SO3",
+   "mass": 79.3792
+  },
+  {
+   "name": "He",
+   "mass": 4.003
+  },
+  {
+   "name": "AlCl",
+   "mass": 51.453
+  },
+  {
+   "name": "AlF",
+   "mass": 45.9799
+  },
+  {
+   "name": "AlH",
+   "mass": 27.9895
+  },
+  {
+   "name": "AlO",
+   "mass": 42.98
+  },
+  {
+   "name": "SiS",
+   "mass": 60.15
+  },
+  {
+   "name": "SiO",
+   "mass": 44.0845
+  },
+  {
+   "name": "C2",
+   "mass": 24.0214
+  },
+  {
+   "name": "Na",
+   "mass": 22.99
+  },
+  {
+   "name": "K",
+   "mass": 39.098
+  },
+  {
+   "name": "TiO",
+   "mass": 63.866
+  },
+  {
+   "name": "VO",
+   "mass": 66.941
+  },
+  {
+   "name": "FeH",
+   "mass": 56.853
+  },
+  {
+   "name": "C",
+   "mass": 12.0107
+  },
+  {
+   "name": "CH2OH",
+   "mass": 31.0339
+  },
+  {
+   "name": "CH3",
+   "mass": 15.0345
+  },
+  {
+   "name": "H",
+   "mass": 1.0079
+  },
+  {
+   "name": "N",
+   "mass": 14.0067
+  },
+  {
+   "name": "NH",
+   "mass": 15.0146
+  },
+  {
+   "name": "NH2",
+   "mass": 16.0225
+  },
+  {
+   "name": "N2H3",
+   "mass": 31.037
+  },
+  {
+   "name": "AsH3",
+   "mass": 77.95
+  },
+  {
+   "name": "BeH",
+   "mass": 10.02
+  },
+  {
+   "name": "CaF",
+   "mass": 59.0764
+  },
+  {
+   "name": "CaH",
+   "mass": 41.0859
+  },
+  {
+   "name": "CaO",
+   "mass": 56.0774
+  },
+  {
+   "name": "CH",
+   "mass": 13.0179
+  },
+  {
+   "name": "CH3F",
+   "mass": 34.03
+  },
+  {
+   "name": "CN",
+   "mass": 26.0174
+  },
+  {
+   "name": "CP",
+   "mass": 42.98
+  },
+  {
+   "name": "CrH",
+   "mass": 53.004
+  },
+  {
+   "name": "H2+",
+   "mass": 2.0151
+  },
+  {
+   "name": "H3+",
+   "mass": 3.0238
+  },
+  {
+   "name": "HeH+",
+   "mass": 5.0105
+  },
+  {
+   "name": "KCl",
+   "mass": 74.5513
+  },
+  {
+   "name": "KF",
+   "mass": 58.0967
+  },
+  {
+   "name": "LiCl",
+   "mass": 42.394
+  },
+  {
+   "name": "LiF",
+   "mass": 25.939
+  },
+  {
+   "name": "LiH",
+   "mass": 7.95
+  },
+  {
+   "name": "LiH+",
+   "mass": 7.95
+  },
+  {
+   "name": "MgF",
+   "mass": 43.303
+  },
+  {
+   "name": "MgH",
+   "mass": 25.313
+  },
+  {
+   "name": "MgO",
+   "mass": 40.304
+  },
+  {
+   "name": "NaCl",
+   "mass": 58.44
+  },
+  {
+   "name": "NaF",
+   "mass": 41.9882
+  },
+  {
+   "name": "NS",
+   "mass": 46.0717
+  },
+  {
+   "name": "OH+",
+   "mass": 17.007
+  },
+  {
+   "name": "P2H2_c",
+   "mass": 63.96
+  },
+  {
+   "name": "P2H2_t",
+   "mass": 63.96
+  },
+  {
+   "name": "PN",
+   "mass": 44.98
+  },
+  {
+   "name": "PO",
+   "mass": 46.97
+  },
+  {
+   "name": "PS",
+   "mass": 31.98
+  },
+  {
+   "name": "ScH",
+   "mass": 45.96
+  },
+  {
+   "name": "SH",
+   "mass": 33.0729
+  },
+  {
+   "name": "SiH",
+   "mass": 29.0934
+  },
+  {
+   "name": "SiH4",
+   "mass": 32.1173
+  },
+  {
+   "name": "TiH",
+   "mass": 48.87
+  },
+  {
+   "name": "H2Oem",
+   "mass": 17.8851
+  },
+  {
+   "name": "Na+",
+   "mass": 22.99
+  },
+  {
+   "name": "K+",
+   "mass": 39.098
+  },
+  {
+   "name": "H-",
+   "mass": 1.0079
+  },
+  {
+   "name": "CH2",
+   "mass": 14.0266
+  },
+  {
+   "name": "H3O+",
+   "mass": 19.0232
+  },
+  {
+   "name": "SiO2",
+   "mass": 60.08
+  },
+  {
+   "name": "S2",
+   "mass": 64.13
+  },
+  {
+   "name": "SO",
+   "mass": 48.0644
+  },
+  {
+   "name": "15NH3",
+   "mass": 16.9072
+  },
+  {
+   "name": "SiH2",
+   "mass": 30.1014
+  },
+  {
+   "name": "NaH",
+   "mass": 23.9977
+  },
+  {
+   "name": "Mg",
+   "mass": 24.305
+  },
+  {
+   "name": "Fe",
+   "mass": 55.845
+  },
+  {
+   "name": "Al",
+   "mass": 26.9815
+  },
+  {
+   "name": "H2SO4",
+   "mass": 98.079
+  },
+  {
+   "name": "Ca",
+   "mass": 40.0784
+  },
+  {
+   "name": "Ti",
+   "mass": 47.8671
+  },
+  {
+   "name": "Si",
+   "mass": 27.9769
+  },
+  {
+   "name": "S",
+   "mass": 32.066
+  },
+  {
+   "name": "P",
+   "mass": 30.9738
+  },
+  {
+   "name": "Li",
+   "mass": 6.941
+  },
+  {
+   "name": "CS2",
+   "mass": 76.1407
+  },
+  {
+   "name": "NaOH",
+   "mass": 39.997
+  }
+ ]
+}

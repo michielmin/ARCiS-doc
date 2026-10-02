@@ -1,0 +1,495 @@
+# Human-written descriptions of ARCiS input keywords.
+#
+# The list of keywords, their aliases, the Fortran variable they set and their
+# default value are extracted automatically from Init.f by
+# docs/scripts/extract_keywords.py. This file only adds the descriptions and
+# the grouping into sections. docs/scripts/gen_reference.py merges the two.
+#
+# Per keyword:
+#   desc:   one or two sentences (markdown allowed)
+#   unit:   physical unit (optional)
+#   review: true  -> description was inferred from the code and should be
+#                    checked by a developer (shown with a marker in the docs)
+#
+# A keyword that exists in the code but not in this file ends up in the
+# "Not yet described" section of the reference page. A keyword listed here that
+# no longer exists in the code produces a warning when generating the docs.
+
+sections:
+
+  - title: Run control
+    keys:
+      useomp: {desc: "Use OpenMP parallelisation (only relevant when compiled with `multi=true`)."}
+      retrieval: {desc: "Perform a retrieval instead of a single forward model. See [Retrievals](../user-guide/retrieval.md)."}
+      opacitymode: {desc: "Do not compute a model, but compute and write opacity tables (FITS) on a P–T grid. See `np`, `nt`, `opacitydir`.", review: true}
+      makeai: {desc: "Compute a grid of models with random parameters drawn from the retrieval parameter ranges (e.g. as training set for machine-learning emulators). Number of models set by `nai`.", review: true}
+      nai: {desc: "Number of models computed when `makeai=.true.`."}
+      parametergridfile: {desc: "File with a list of parameter values to compute when `makeai=.true.`, instead of random draws.", review: true}
+      pew: {desc: "Post-process an existing retrieval: recompute models for the posterior samples (`post_equal_weights`) and write spectra/structure confidence limits."}
+      npew: {desc: "Number of posterior samples used when `pew=.true.` (-1 = all).", review: true}
+      idum: {desc: "Seed for the random number generator (only used when `randomseed=.false.`)."}
+      randomseed: {desc: "Initialise the random number generator from the system clock. Set to `.false.` (and set `idum`) for reproducible runs."}
+      iwolk: {desc: "Read line *iwolk* of `Wolk.dat` from a previous retrieval in the output directory and use those parameter values.", review: true}
+      writewolk: {desc: "Write the `Wolk.dat` file with all models evaluated during a retrieval.", review: true}
+      planetname: {desc: "Read planet and star parameters (radius, mass, orbit, stellar T, R, M, log g) from the planet database (`parameterfile`). **Values are set at the moment this keyword is read**, so keywords appearing *after* `planetname` override the database."}
+      parameterfile: {desc: "Planet database used by `planetname`. Can be the ARCiS ASCII format or a `.csv` file (e.g. the NASA Exoplanet Archive)."}
+      standardstar: {desc: "Set Tstar, Rstar and Mstar from a standard spectral type (O2 … L1, e.g. `G2`).", review: true}
+
+  - title: Planet and star
+    keys:
+      rp: {desc: "Planet radius at pressure `Pp`.", unit: "R<sub>Jup</sub>"}
+      mp: {desc: "Planet mass.", unit: "M<sub>Jup</sub>"}
+      loggp: {desc: "Planet surface gravity log<sub>10</sub>(g). When given, the mass is computed from `Rp` and `loggP` (overrides `Mp`).", unit: "cgs"}
+      pp: {desc: "Pressure level corresponding to the radius `Rp`.", unit: bar}
+      constant_g: {desc: "Use a constant gravity throughout the atmosphere instead of g(r)."}
+      fixmmw: {desc: "Fix the mean molecular weight to `mmw` instead of computing it from the composition."}
+      mmw: {desc: "Mean molecular weight used when `fixmmw=.true.`.", unit: amu}
+      rp_from_interior: {desc: "Compute the planet radius from the mass with a simple rocky/metal interior model (Birch–Murnaghan EOS), using `interior_f_core` and `interior_f_ice`."}
+      interior_f_core: {desc: "Core (metal) mass fraction for the interior model."}
+      interior_f_ice: {desc: "Ice (water) mass fraction for the interior model."}
+      tstar: {desc: "Stellar effective temperature.", unit: K}
+      rstar: {desc: "Stellar radius.", unit: "R<sub>☉</sub>"}
+      mstar: {desc: "Stellar mass.", unit: "M<sub>☉</sub>"}
+      logg: {desc: "Stellar surface gravity log<sub>10</sub>(g), used to select the stellar model spectrum.", unit: cgs}
+      starfile: {desc: "File with the stellar spectrum (wavelength, flux at the stellar surface in W m<sup>-2</sup> Hz<sup>-1</sup>). Default is a Kurucz model."}
+      bbstar: {desc: "Use a blackbody for the stellar spectrum."}
+      dp: {desc: "Orbital distance of the planet.", unit: AU}
+      projecteddp: {desc: "Interpret `Dplanet` as the projected distance at phase `phase1`.", review: true}
+      distance: {desc: "Distance to the system (used for absolute fluxes in Jy).", unit: pc}
+      orbit: {desc: "Orbital elements, given as `orbit:P` (period, s; default computed from Kepler's law), `orbit:e`, `orbit:omega` and `orbit:inc` (degrees). Used for light curves.", review: true}
+      vrot: {desc: "Rotational velocity of the planet, for velocity-resolved spectra.", unit: cm/s, review: true}
+      vrot_max: {desc: "Maximum velocity of the velocity grid.", unit: cm/s, review: true}
+      nvrot: {desc: "Number of velocity bins on each side of zero.", review: true}
+
+  - title: Atmospheric and spectral grid
+    keys:
+      nr: {desc: "Number of pressure layers in the atmosphere."}
+      nrsurf: {desc: "Additional layers placed below `Psurf` (added to `nr`).", review: true}
+      psurf: {desc: "Pressure range (factor below `pmax`) where the `nrsurf` extra layers are placed.", review: true}
+      pmin: {desc: "Pressure at the top of the atmosphere.", unit: bar}
+      pmax: {desc: "Pressure at the bottom of the atmosphere.", unit: bar}
+      setsurfp: {desc: "Set `pmax` to the sum of the given partial pressures (molecule keywords then act as partial pressures in bar). Used for secondary atmospheres with a surface.", review: true}
+      lmin: {desc: "Minimum wavelength. For temperature computations (`computeT`) the range must cover the bulk of the stellar and planetary emission.", unit: µm}
+      lmax: {desc: "Maximum wavelength.", unit: µm}
+      lam: {desc: "Alternative to `lmin`/`lmax`: `lam1` sets the minimum, `lam2` the maximum wavelength.", unit: µm}
+      specres: {desc: "Spectral resolution λ/Δλ of the computed spectrum."}
+      specreslr: {desc: "Spectral resolution of the low-resolution grid used for the temperature structure computation."}
+      specresfile: {desc: "File with a wavelength-dependent spectral resolution."}
+      nrcloud: {desc: "Number of sub-layers used in the self-consistent cloud computations (internally converted to a refinement factor `nrcloud/nr`)."}
+      nrstepchem: {desc: "Compute chemistry only every *n*-th layer inside the cloud formation loop, and interpolate in between (speed-up)."}
+
+  - title: Composition and chemistry
+    keys:
+      "<molecule>": {desc: "Any molecule from the [molecule list](molecules.md), e.g. `H2O=1d-4`, sets a constant volume mixing ratio. Only molecules that appear in the input are included in the opacity computation. **Molecule names are case sensitive.** Values are overwritten when `chemistry=.true.`; then the keyword only selects which molecules contribute opacity."}
+      h2+he: {desc: "Shortcut to set the H<sub>2</sub>+He background: 85% H<sub>2</sub>, 15% He of the given value."}
+      chemistry: {desc: "Compute the composition with equilibrium chemistry (GGchem)."}
+      condensates: {desc: "Include condensation (and depletion of the gas phase) in the equilibrium chemistry. Most stable is to leave it `.false.`; use a cloud of type `CONDENSATION` for self-consistent clouds."}
+      metallicity: {desc: "Atmospheric metallicity, log<sub>10</sub> relative to solar."}
+      dmetallicity: {desc: "Metallicity gradient with pressure.", review: true}
+      coratio: {desc: "C/O ratio of the atmosphere (default is solar)."}
+      sioratio: {desc: "Si/O ratio (default solar)."}
+      noratio: {desc: "N/O ratio (default solar)."}
+      soratio: {desc: "S/O ratio (default solar)."}
+      inversecoratio: {desc: "Changes how the C/O ratio is imposed: by default C is adjusted, with this switch O is adjusted.", review: true}
+      elementfile: {desc: "File with the elemental abundances to use instead of solar."}
+      elementlist: {desc: "List of elements included in the chemistry computation."}
+      diseq: {desc: "Include disequilibrium chemistry from vertical mixing (Kawashima & Min 2021). Uses the global K<sub>zz</sub> profile."}
+      dophotoai: {desc: "Use the machine-learning photochemistry emulator (calls Python through a pipe).", review: true}
+      ggchem_piter: {desc: "Iterate on pressure in GGchem. Only set to `.false.` to reproduce old results."}
+      ggchem_tfast: {desc: "Temperature below which GGchem uses its slower, more robust mode.", unit: K, review: true}
+      secondary_atmosphere: {desc: "Treat the atmosphere as a secondary (outgassed) atmosphere in the chemistry.", review: true}
+      waterworld: {desc: "Water-world setup: the surface pressure and composition follow from a water ocean in equilibrium with the atmosphere.", review: true}
+      fh2o: {desc: "Water mass fraction for the water-world setup.", review: true}
+      simplerainout: {desc: "Remove condensing species below the condensation level in a simple way.", review: true}
+      mixp: {desc: "Below this pressure the atmosphere is assumed to be well mixed (chemistry only computed for P ≥ mixP).", unit: bar}
+      fixmol: {desc: "Fix a molecule's abundance: `fixmol1:name=H2O`, `fixmol1:abun=1d-4`, `fixmol1:P=…` (only above this pressure).", review: true}
+      pswitch: {desc: "Pressure at which the abundance of a molecule switches, e.g. `Pswitch:H2O=1d-2`; used together with `abun_switch`.", unit: bar}
+      abunswitch: {desc: "Abundance of a molecule at pressures below `Pswitch`, e.g. `abun_switch:H2O=1d-6`."}
+      background: {desc: "Mark a molecule as background gas, e.g. `background:N2=.true.`; the background fills up the remainder of the atmosphere.", review: true}
+      dotrace: {desc: "Exclude (`.false.`) or include a molecule in the radiative transfer while keeping it in the structure, e.g. `trace:CO2=.false.`."}
+      isotope: {desc: "Isotopologue setup: `isotope:CO=…` names the molecule to use as isotopologue, `f_isotope:CO=…` its fraction.", review: true}
+      useff: {desc: "Include free-free / bound-free continuum opacities (H<sup>-</sup> etc.)."}
+      optec: {desc: "Volume mixing ratio of carbon atoms in optEC (amorphous hydrocarbon) haze.", review: true}
+      rad_optec: {desc: "Particle radius of the optEC haze.", unit: µm, review: true}
+      eg_optec: {desc: "Band gap of the optEC material.", unit: eV, review: true}
+      pah: {desc: "Abundance of PAHs.", review: true}
+      ncpah: {desc: "Number of carbon atoms per PAH molecule."}
+
+  - title: Vertical mixing (Kzz)
+    keys:
+      kzz: {desc: "Homogeneous eddy diffusion coefficient. Used when `Kzz_1bar` is not set.", unit: "cm² s⁻¹"}
+      kzz_deep: {desc: "K<sub>zz</sub> in the deep atmosphere (see [Kzz profile](../user-guide/chemistry.md#vertical-mixing-kzz)).", unit: "cm² s⁻¹"}
+      kzz_1bar: {desc: "K<sub>zz</sub> at 1 bar of the power-law part of the profile. A negative value switches the profile off.", unit: "cm² s⁻¹"}
+      kzz_p: {desc: "Power γ<sub>K</sub> of the pressure dependence."}
+      kzz_contrast: {desc: "Contrast between the minimum and maximum K<sub>zz</sub>. A negative value switches it off."}
+      kzz_offset: {desc: "Minimum value added to K<sub>zz</sub>.", unit: "cm² s⁻¹", review: true}
+      kzz_max: {desc: "Maximum allowed K<sub>zz</sub>.", unit: "cm² s⁻¹"}
+      complexkzz: {desc: "Use the more complex K<sub>zz</sub> parameterisation.", review: true}
+      computekzz: {desc: "Compute K<sub>zz</sub> self-consistently from the structure.", review: true}
+      convectkzz: {desc: "Increase K<sub>zz</sub> in convective regions (mixing-length estimate).", review: true}
+
+  - title: Photochemistry (parameterised)
+    keys:
+      photoreac: {desc: "Reactant of a parameterised photochemical reaction, e.g. `photoreac1:CH4=1`. Also `photoprod1:<molecule>=n` for products. See [Photochemistry](../user-guide/chemistry.md#parameterised-photochemistry)."}
+      photoeff: {desc: "Maximum efficiency f<sub>eff</sub> of reaction *n* (`photoeff1`)."}
+      photokappa: {desc: "Scaling of κ<sub>UV</sub> for reaction *n*.", review: true}
+      photohaze: {desc: "Convert reactants of reaction *n* into haze, with the given number of C atoms per molecule."}
+      kappauv: {desc: "UV opacity κ<sub>UV</sub> used to compute τ<sub>UV</sub>.", unit: "cm² g⁻¹"}
+      gammauv: {desc: "If ≥0, set κ<sub>UV</sub> = γ<sub>UV</sub> × `kappaT`."}
+      distruv: {desc: "In 3D models, distribute the UV over the whole planet instead of only the dayside.", review: true}
+      photdestroy: {desc: "Pressure above which a molecule is photo-destroyed, e.g. `Pdestroy:NH3=1d-3`.", unit: bar, review: true}
+
+  - title: Temperature structure
+    keys:
+      tp: {desc: "Temperature at 1 bar for the default power-law profile: log T = log T<sub>p</sub> + dT<sub>p</sub> log P.", unit: K}
+      dtp: {desc: "Slope dT<sub>p</sub> of the power-law profile (0 = isothermal)."}
+      partprofile: {desc: "Use the parameterised (Guillot 2010) temperature profile set by `TeffP`, `kappaT`, `gammaT`, `betaT`."}
+      teffp: {desc: "Internal (intrinsic) temperature of the planet.", unit: K}
+      kappa: {desc: "Mean infrared opacity κ<sub>IR</sub> of the Guillot profile.", unit: "cm² g⁻¹"}
+      gamma: {desc: "Ratio κ<sub>vis</sub>/κ<sub>IR</sub>. `gammaT2` sets a second visible channel (two-stream variant)."}
+      beta: {desc: "Redistribution/irradiation factor β: the fraction of the substellar irradiation used (≈ cosine of incidence angle)."}
+      alpha: {desc: "Weight between the two visible channels when `gammaT2` is set.", review: true}
+      grey_isot: {desc: "Use an isothermal profile at the grey equilibrium temperature.", review: true}
+      computet: {desc: "Compute the temperature structure self-consistently (radiative–convective equilibrium)."}
+      maxiter: {desc: "Maximum number of iterations for the self-consistent temperature structure."}
+      miniter: {desc: "Minimum number of iterations."}
+      epsiter: {desc: "Convergence criterion for the temperature iteration."}
+      exp_ad: {desc: "Adiabatic exponent (C<sub>p</sub>/C<sub>v</sub>)."}
+      useeos: {desc: "Use a tabulated equation of state for the adiabatic gradient (requires `Data/EOS`)."}
+      adiabatic: {desc: "Limit the temperature gradient to the adiabat."}
+      isofstar: {desc: "Assume isotropic incident stellar flux in the temperature computation.", review: true}
+      forceebalance: {desc: "Force exact energy balance by rescaling the emission (computes all wavelengths).", review: true}
+      computeteff: {desc: "Estimate the internal temperature from the irradiation (Thorngren & Fortney 2018), with a minimum of 85 K."}
+      tsurface: {desc: "Surface temperature used as a constraint in the temperature computation.", unit: K, review: true}
+      tmin: {desc: "Minimum temperature allowed in the structure (also lower bound for retrieved free-profile temperatures).", unit: K}
+      tmax: {desc: "Maximum temperature allowed (also upper bound for retrieved free-profile temperatures).", unit: K}
+      maxt: {desc: "Temperatures in the profile are capped at this value.", unit: K}
+      tpfile: {desc: "Read the P–T structure from file (columns: P [bar], T [K]). With `mixratfile=.true.` also mixing ratios."}
+      gridtpfile: {desc: "Use the pressure grid of `TPfile` as the atmospheric grid (then `nr` must match the file)."}
+      mixratfile: {desc: "`TPfile` also contains mixing ratios. First line: number of molecules, second line: molecule names, then rows of P, T, abundances."}
+      free_tprofile: {desc: "Use a free temperature profile defined by temperature points (switched on automatically when retrieving `tprofile`)."}
+      ntpoints: {desc: "Number of points of the free temperature profile."}
+      tpoint: {desc: "Value at point *n* of the free temperature profile (temperature gradient or temperature, see `free_fitT`).", review: true}
+      ppoint: {desc: "Pressure of point *n* of the free temperature profile.", unit: bar}
+      preftpoint: {desc: "Reference pressure of the free temperature profile.", unit: bar, review: true}
+      free_fitt: {desc: "Free profile is parameterised by temperatures instead of temperature gradients (read in the pre-pass).", review: true}
+      free_fitp: {desc: "Also retrieve the pressures of the free profile points.", review: true}
+      free_fitdt: {desc: "Inverse of `free_fitT`.", review: true}
+      tauvpoint: {desc: "Optical depth of visible-channel point *n* of the free profile.", review: true}
+      tauirpoint: {desc: "Optical depth of IR-channel point *n* of the free profile.", review: true}
+      dtvpoint: {desc: "Gradient at visible-channel point *n*.", review: true}
+      dtirpoint: {desc: "Gradient at IR-channel point *n*.", review: true}
+      pos_dt: {desc: "Force positive temperature gradients in the free profile (no inversions)."}
+      pos_dt_lowest: {desc: "Force a positive gradient only at the deepest point."}
+      wiggle_err: {desc: "Regularisation of the free temperature profile: penalises curvature in the likelihood (≤0 = off)."}
+      logtprofile: {desc: "Sample free-profile temperatures logarithmically."}
+      taurexprofile: {desc: "Interpolate the free profile like TauREx (with smoothing).", review: true}
+      taurexsmooth: {desc: "Smoothing width (in dex of pressure) of the TauREx-like profile."}
+
+  - title: Opacities and radiative transfer
+    keys:
+      opacitydir: {desc: "Directory with the molecular opacity tables (FITS)."}
+      usexs: {desc: "Use cross-section tables instead of correlated-k tables.", review: true}
+      ng: {desc: "Number of g-points in the correlated-k treatment."}
+      cia: {desc: "Include collision-induced absorption. `cia1:file=…` adds extra CIA files (HITRAN format); H2–H2 and H2–He are found automatically in `Data/CIA`."}
+      rayleigh: {desc: "Include Rayleigh scattering by the gas."}
+      scattering: {desc: "Include scattering of the thermal radiation of the planet."}
+      scattstar: {desc: "Include scattering of stellar light (reflected light)."}
+      anisoscatt: {desc: "Use anisotropic scattering for the stellar light (otherwise isotropic)."}
+      maxtau: {desc: "Maximum optical depth considered in the ray tracing."}
+      np: {desc: "Number of pressure points of the opacity table in `opacitymode`."}
+      nt: {desc: "Number of temperature points of the opacity table in `opacitymode`."}
+      outputopacity: {desc: "Write the opacities per layer to the output directory."}
+      contrib: {desc: "Compute and write contribution functions."}
+      dlmie: {desc: "Use the DLMie neural-network emulator for Mie computations.", review: true}
+      cloudoverlap: {desc: "How partial cloud coverages of different cloud layers combine: overlapping (`.true.`) or independent.", review: true}
+      emisspec: {desc: "Compute the emission spectrum."}
+      transspec: {desc: "Compute the transmission spectrum."}
+      dotranshide: {desc: "Additionally compute transmission spectra with each molecule/cloud hidden in turn (`trans_hide_*` files)."}
+      nrtatm: {desc: "Number of atmospheres used in the ray tracing of 3D models (-1 = all).", review: true}
+      nphot: {desc: "Number of photon packages for the Monte Carlo scattering computation of the spectra (with `scattering`/`scattstar`)."}
+      factrw: {desc: "Threshold (in optical depth per cell) above which the Monte Carlo scattering code uses a modified random walk.", review: true}
+
+  - title: Surface
+    keys:
+      surfacetype: {desc: "Type of surface at the bottom of the atmosphere: `BLACK`, `GREY`, `WHITE`, `PARAMETERISED`, `FILE`, `WATER`, `ICE`, `SNOW`, `GRASS`, `SAND`, `EARTH`, `PARLAND`, `GREYLAND`, `QUARTZ`, `FeO`, `LABRADORITE`, `MIXED`. See [Surface](../user-guide/radiative-transfer.md#surface)."}
+      surfacealbedo: {desc: "Albedo of a grey surface."}
+      surfacefile: {desc: "File with the surface reflectance (wavelength [µm], reflectance [%]) for `surfacetype=FILE`."}
+      lambert: {desc: "Treat the surface as a Lambertian reflector (otherwise a BRDF is used for anisotropic stellar scattering)."}
+      fwater: {desc: "Fraction of the surface covered by water (`EARTH` surface)."}
+      fice: {desc: "Fraction covered by ice."}
+      fsnow: {desc: "Fraction covered by snow."}
+      fgrass: {desc: "Fraction covered by vegetation."}
+      surf_lam: {desc: "Wavelengths of the steps in the `PARAMETERISED` surface albedo (`surf_lam1`, `surf_lam2`).", unit: µm}
+      surf_alb: {desc: "Albedo values of the `PARAMETERISED` surface below `surf_lam1`, between, and above `surf_lam2` (`surf_alb1..3`)."}
+      lam_re: {desc: "Wavelength of the red edge (alias for `surf_lam1`).", unit: µm}
+      lamstep: {desc: "Wavelength of step *n* in the surface albedo fit.", unit: µm, review: true}
+      fit_albedo: {desc: "Fit the surface albedo non-parametrically (Gaussian process) during the retrieval. Requires `useobsgrid=.true.`."}
+      fit_albedo_gp: {desc: "Use a Gaussian-process prior for the albedo (`fit_albedo_GP3` for the three-segment variant)."}
+      fit_albedo_sigma: {desc: "Amplitude of the GP prior on the albedo."}
+      fit_albedo_sigma_gp: {desc: "Amplitudes of the three GP segments (`fit_albedo_sigma_GP1..3`)."}
+      fit_albedo_gp3_lam: {desc: "Segment boundaries for the three-segment GP (`fit_albedo_GP3_lam1/2`).", unit: µm}
+      fit_albedo_l: {desc: "Correlation length of the GP kernel.", unit: µm}
+      fit_albedo_l_step: {desc: "Width of the step in the albedo model.", unit: µm}
+      fit_albedo_step: {desc: "Include a step (red edge) in the albedo model."}
+      fit_albedo_sigma_step: {desc: "Prior width on the step height."}
+      fit_albedo_slope: {desc: "Include a linear slope in the albedo model."}
+      fit_albedo_sigma_slope: {desc: "Prior width on the slope."}
+      fit_albedo_ls: {desc: "Solve the albedo with plain least squares instead of a GP.", review: true}
+      fit_albedo_matern: {desc: "Use a Matérn kernel instead of a squared-exponential kernel."}
+      fit_albedo_remove_lin: {desc: "Remove the linear trend before fitting the GP.", review: true}
+
+  - title: Retrieval
+    keys:
+      retpar: {desc: "Define a retrieval parameter (usually written as `fitpar:`). See the [`fitpar:` sub-keywords](#fitpar-sub-keywords)."}
+      obs: {desc: "Define an observation. See the [`obsN:` sub-keywords](#obsn-sub-keywords)."}
+      retrievaltype: {desc: "Sampler: `MN`/`MultiNest` (nested sampling, default), `MC`/`MCMC`, `OE` (optimal estimation), `FULL` (MultiNest followed by MCMC).", review: true}
+      npop: {desc: "MultiNest: number of live points. MCMC: number of walkers / burn-in.", review: true}
+      ngen: {desc: "Number of generations for the genetic/optimal-estimation algorithm.", review: true}
+      npost: {desc: "Number of posterior samples in the MCMC chain."}
+      epsinit: {desc: "Initial step size of the MCMC."}
+      mcmclogz: {desc: "Compute the Bayesian evidence from the MCMC with thermodynamic integration (see [MCMC evidence](../theory/mcmc-evidence.md))."}
+      fmultinest: {desc: "MultiNest sampling efficiency (`efr`)."}
+      tolmultinest: {desc: "MultiNest evidence tolerance."}
+      ins_nest: {desc: "Use importance nested sampling in MultiNest."}
+      consteff: {desc: "Use MultiNest's constant efficiency mode."}
+      resume_nest: {desc: "Resume an interrupted MultiNest run from the files in the output directory."}
+      nestupdate: {desc: "Number of iterations between MultiNest output updates."}
+      useobsgrid: {desc: "Only compute the spectrum at wavelengths of the observations (strongly recommended for retrievals)."}
+      model_err_abs: {desc: "Absolute model error added in quadrature to the observational errors.", review: true}
+      model_err_rel: {desc: "Relative model error added in quadrature.", review: true}
+      fullcovmat: {desc: "Use the full covariance matrix (correlated noise, see `obsN:cov_*`)."}
+      cov_a_loc: {desc: "Amplitude of localised correlated-noise component *n*.", review: true}
+      cov_l_loc: {desc: "Correlation length of localised component *n*.", review: true}
+      cov_lam_loc: {desc: "Central wavelength of localised component *n*.", unit: µm, review: true}
+      adderr: {desc: "Extra error added to observations *n1..n2*.", review: true}
+      eps_dup: {desc: "Tolerance used to detect duplicate parameter vectors.", review: true}
+      logemis: {desc: "Compare emission spectra (`type=emis`) in log space. Turned off automatically with `scaleR`."}
+      doscaler: {desc: "Analytically scale the planet radius to best fit the data in each likelihood evaluation.", review: true}
+      nscaler: {desc: "Number of points used for the radius scaling.", review: true}
+      massprior: {desc: "Apply a Gaussian prior on the planet mass (`Mp_prior`, `dMp_prior`; set automatically from the planet database)."}
+      mp_prior: {desc: "Mean of the mass prior.", unit: "M<sub>Jup</sub>"}
+      dmp_prior: {desc: "Width of the mass prior.", unit: "M<sub>Jup</sub>"}
+      radprior: {desc: "Apply a Gaussian prior on the planet radius."}
+      rp_prior: {desc: "Mean of the radius prior.", unit: "R<sub>Jup</sub>"}
+      drp_prior: {desc: "Width of the radius prior.", unit: "R<sub>Jup</sub>"}
+      rp_range: {desc: "Allowed range of the radius (used in radius scaling).", review: true}
+      randomstart: {desc: "Start the optimiser/MCMC from a random point in parameter space."}
+      gene_cross: {desc: "Use cross-over in the genetic algorithm.", review: true}
+      nboot: {desc: "Number of bootstrap iterations for the optimal-estimation retrieval."}
+      faircoverage: {desc: "Down-weight wavelength regions covered by many data points so each spectral region contributes fairly."}
+      speclimits: {desc: "Write 1σ/2σ/3σ confidence limits of spectra after a retrieval."}
+      par3d: {desc: "Parameters varying over the planet in 3D retrievals. See `par3dN:` sub-keywords below."}
+      par3dsteepness: {desc: "Steepness of the transition between day- and nightside values of 3D parameters."}
+      mapcoratio: {desc: "Map retrieved C/O to atomic abundances without chemistry (in AI/retrieval output).", review: true}
+
+  - title: 3D models and phase curves
+    keys:
+      do3d: {desc: "Compute a 3D (pseudo-3D) model using the β-map (Chubb & Min 2022)."}
+      n3d: {desc: "Number of 1D models (β-values) used to build the 3D planet."}
+      nlong: {desc: "Number of longitude cells."}
+      nlatt: {desc: "Number of latitude cells."}
+      night2day: {desc: "Day-to-night heat redistribution efficiency."}
+      fixnight2day: {desc: "Compute `night2day` from a physical estimate instead of using the value given.", review: true}
+      pole2eq: {desc: "Pole-to-equator redistribution."}
+      hotspotshift: {desc: "Shift of the hot spot in longitude (degrees). Default: computed from the wind.", review: true}
+      tidallock: {desc: "Assume a tidally locked planet."}
+      fday: {desc: "Fraction of the dayside that is irradiated.", review: true}
+      kxx: {desc: "Diffusion coefficient in longitude for the β-map.", review: true}
+      kyy: {desc: "Diffusion coefficient in latitude for the β-map.", review: true}
+      vxx: {desc: "Advection velocity in longitude for the β-map.", review: true}
+      powvxx: {desc: "Latitude dependence of `vxx`.", review: true}
+      deepredist: {desc: "Redistribute heat in the deep atmosphere (only with `do3D`)."}
+      deepredisttype: {desc: "Type of deep redistribution: `fixbeta` or `fixflux`.", review: true}
+      nalbedo_iter: {desc: "Number of albedo iterations ensuring energy conservation with day/night albedo differences (see [Albedo iteration](../theory/albedo-iteration.md))."}
+      phase: {desc: "Phase angle(s) for which emission spectra are computed: `phase1=180`, `phase2=90`, … (degrees; 180 = full dayside)."}
+      nnu: {desc: "Number of frequencies for the stellar irradiation angles in 3D.", review: true}
+      output3d: {desc: "Write the full 3D structure output."}
+      readfull3d: {desc: "Read a full 3D structure (e.g. from a GCM) instead of the β-map. Requires `nlong × nlatt` 1D models."}
+      full3ddir: {desc: "Directory with the 3D structure files (sets `readFull3D=.true.`)."}
+      makeimage: {desc: "Make an image of the planet.", review: true}
+      makemovie: {desc: "Make a sequence of images for a movie (implies `makeimage`).", review: true}
+      computelc: {desc: "Compute a light curve.", review: true}
+
+  - title: Planet formation link
+    keys:
+      planetform: {desc: "Set the elemental composition from a planet formation model (SimAb, Khorshid et al. 2022)."}
+      fdust: {desc: "Fraction of solids accreted.", review: true}
+      fplanet: {desc: "Fraction of planetesimals accreted.", review: true}
+      dmigrate: {desc: "Migration distance.", unit: AU}
+      rendmigrate: {desc: "Final orbital distance after migration (default: `Dplanet`).", unit: AU}
+      rstart: {desc: "Deprecated: old way to set the formation location. Use `dmigrate`/`rendmigrate`.", unit: AU}
+      mstart: {desc: "Initial core mass.", unit: "M<sub>⊕</sub>"}
+      sootline: {desc: "Fraction of refractory carbon (soot line).", review: true}
+      mdotdisk: {desc: "Disk accretion rate.", unit: "M<sub>☉</sub>/yr", review: true}
+      hydrogenloss: {desc: "Fraction of hydrogen retained (atmospheric escape).", review: true}
+      outflow: {desc: "Include an outflowing upper atmosphere.", review: true}
+      vfrag: {desc: "Fragmentation velocity of cloud particles in the coagulation.", unit: cm/s}
+
+  - title: Rings and exozodi
+    keys:
+      doring: {desc: "Add a ring around the planet."}
+      rring: {desc: "Inner radius of the ring.", unit: "R<sub>p</sub>", review: true}
+      drring: {desc: "Width of the ring.", unit: "R<sub>p</sub>", review: true}
+      tauring: {desc: "Optical depth of the ring."}
+      exozodi: {desc: "Exozodi level (in zodis) for the HWO noise estimate."}
+
+  - title: Clouds
+    keys:
+      cloud: {desc: "Define cloud layers with `cloudN:` sub-keywords; see [Clouds](../user-guide/clouds.md) and the [`cloudN:` sub-keywords](#cloudn-sub-keywords)."}
+      particledir: {desc: "Directory for cached particle opacity files.", review: true}
+
+  - title: Instrument simulation
+    keys:
+      instrument: {desc: "Rough noise simulation, see [`instrumentN:` sub-keywords](#instrumentn-sub-keywords) and [Instrument simulation](../user-guide/instrument-simulation.md)."}
+
+  - title: Deprecated or without effect
+    keys:
+      cutoff: {desc: "Line-wing cut-off for opacity computations from line lists (no longer done in ARCiS)."}
+      cutoff_abs: {desc: "Absolute line-wing cut-off (no longer used)."}
+      eps: {desc: "Accuracy parameter for the correlated-k tables (no longer used)."}
+      epslines: {desc: "Line strength threshold (no longer used)."}
+      tiscale: {desc: "Scaling of the Ti abundance (currently not used)."}
+      sinkz: {desc: "Sinking of heavy elements (currently not used)."}
+      alphaz: {desc: "Parameter of `sinkZ` (currently not used)."}
+      nspike: {desc: "Currently not used."}
+      chimax: {desc: "Currently not used."}
+      3daim: {desc: "Aim of the 3D setup (currently not used)."}
+      betapow: {desc: "Power of the β-map (currently not used)."}
+      maxchemtime: {desc: "Maximum time for the chemistry computation (currently not used)."}
+      trend_compute: {desc: "Currently not used."}
+      compute: {desc: "No longer supported; prints a message and is ignored."}
+      nphase: {desc: "No longer supported; use `phase1`, `phase2`, …"}
+      specresdust: {desc: "No longer in use."}
+
+# ---------------------------------------------------------------------------
+# Sub-keywords
+# ---------------------------------------------------------------------------
+
+fitpar:
+  keyword: {desc: "Keyword to retrieve. Starts a new retrieval parameter; the following `fitpar:` lines apply to it. `tprofile` sets up a free temperature profile."}
+  min: {desc: "Lower bound of the prior."}
+  max: {desc: "Upper bound of the prior."}
+  log: {desc: "Sample the parameter logarithmically."}
+  init: {desc: "Initial value (default: centre of the range, or the value set in the input file)."}
+  spread: {desc: "Width of a Gaussian prior (used with an `obs` of type `prior`).", review: true}
+  square: {desc: "Sample uniformly in the square of the parameter.", review: true}
+  opacity: {desc: "Changing this parameter requires recomputing the opacities.", review: true}
+  increase: {desc: "Force this parameter to be larger than the previous one.", review: true}
+
+obs:
+  type: {desc: "Type of observation: `trans` (R<sub>p</sub>²/R<sub>*</sub>²), `emis` (flux, Jy), `emisR` (F<sub>p</sub>/F<sub>*</sub>), `phase`/`phaseR` (phase curve), `transC`/`transM`/`transE`, `lightcurve`, `tprofile`/`logtp`, `prior`."}
+  file: {desc: "File with the observed spectrum. Columns: wavelength [µm], value, error, and optionally spectral resolution R and the bin-shape exponent (see [Observations](../user-guide/retrieval.md#observation-files))."}
+  filter: {desc: "File with filter transmission curves to convolve the model with (photometry).", review: true}
+  beta: {desc: "Weight of this observation in the likelihood (errors are divided by `beta`)."}
+  scaling: {desc: "Fit a multiplicative scaling of this data set.", review: true}
+  fscale: {desc: "Fixed multiplicative scaling factor of this data set.", review: true}
+  dscale: {desc: "Prior width on the scaling.", review: true}
+  iphase: {desc: "Index of the phase angle (`phaseN`) this emission observation corresponds to."}
+  slope: {desc: "Linear slope added to the data.", review: true}
+  offset: {desc: "Offset added to the data.", review: true}
+  adderr: {desc: "Extra error added to this data set.", review: true}
+  c_l: {desc: "Correlation length of the correlated noise kernel.", review: true}
+  c_a: {desc: "Amplitude of the correlated noise.", review: true}
+  c_b: {desc: "Covariance term for a constant offset.", review: true}
+  c_s: {desc: "Covariance term for a scaling.", review: true}
+  cov_a_loc: {desc: "Amplitude of localised correlated noise component *n* (`obs1:cov_a_loc2=…`).", review: true}
+  cov_l_loc: {desc: "Correlation length of localised component *n*.", review: true}
+  cov_lam_loc: {desc: "Central wavelength of localised component *n*.", review: true}
+
+instrument:
+  name: {desc: "`ARIEL`, `JWST`, `MIRI`, `NIRSPEC`, `WFC3`, `HWO`, or a file name with an ExoSim-format instrument simulation."}
+  ntrans: {desc: "Number of transits. With 0, the number of transits is chosen such that 7 scale heights are detected at 5σ at each wavelength."}
+  tint: {desc: "Integration time.", unit: hours}
+  nobs: {desc: "Index of the observation this instrument is linked to.", review: true}
+
+par3d:
+  keyword: {desc: "Keyword that varies across the planet."}
+  min: {desc: "Value on the nightside.", review: true}
+  max: {desc: "Value on the dayside.", review: true}
+  log: {desc: "Interpolate logarithmically."}
+  relative: {desc: "Values are multiplicative factors of the 1D value.", review: true}
+
+fixmol:
+  name: {desc: "Name of the molecule to fix."}
+  abun: {desc: "Fixed volume mixing ratio."}
+  p: {desc: "Fix only at pressures below this value.", unit: bar, review: true}
+
+orbit:
+  p: {desc: "Orbital period (default from Kepler's third law).", unit: s}
+  e: {desc: "Eccentricity."}
+  omega: {desc: "Argument of periastron.", unit: deg}
+  inc: {desc: "Inclination.", unit: deg}
+
+cloud:
+  type: {desc: "Cloud type: `CONDENSATION`, `DIFFUSE`, `WATER`, `FILE`, `FILEDRIFT`, `LAYER`, `SLAB`, `DECK`, `GAUSS`, `HALFGAUSS`, `HOMOGENEOUS`, `RING`. See [Clouds](../user-guide/clouds.md)."}
+  opacitytype: {desc: "`PARAMETERISED`, `REFIND`, `MATERIAL`, `FILE`, `OPACITY`, or `AUTO` (`MATERIAL` for condensation clouds)."}
+  coverage: {desc: "Fraction of the planet covered by this cloud (patchy clouds)."}
+  pressure: {desc: "Pressure of maximum nucleation (`CONDENSATION`/`DIFFUSE`) or centre of a `GAUSS` cloud.", unit: bar}
+  dp: {desc: "Width of the nucleation profile or `GAUSS` cloud (factor in pressure).", review: true}
+  ptop: {desc: "Top pressure of the cloud.", unit: bar}
+  pbottom: {desc: "Bottom pressure of the cloud.", unit: bar}
+  ptau: {desc: "Pressure where the cloud reaches optical depth `tau` at `lam_ref` (`LAYER`, `DECK`).", unit: bar}
+  prel: {desc: "Interpret `Pbottom` relative to the bottom of the atmosphere and `Ptop`/`Ptau` relative to `Pbottom`.", review: true}
+  xi: {desc: "Power-law of the cloud opacity with pressure (`LAYER`, `GAUSS`)."}
+  dlogp: {desc: "Pressure scale Φ over which a `DECK` cloud falls off."}
+  tau: {desc: "Optical depth of the cloud at `lam_ref`."}
+  lam_ref: {desc: "Reference wavelength for `tau`.", unit: µm}
+  mixrat: {desc: "Mass mixing ratio of cloud particles (`HOMOGENEOUS`)."}
+  sigmadot: {desc: "Nucleation rate (column-integrated) for `CONDENSATION`/`DIFFUSE` clouds.", unit: "g cm⁻² s⁻¹"}
+  sigmadot_phot: {desc: "Nucleation rate of photochemical haze nuclei.", unit: "g cm⁻² s⁻¹", review: true}
+  kzz: {desc: "K<sub>zz</sub> for this cloud when `globalKzz=.false.`.", unit: "cm² s⁻¹"}
+  globalkzz: {desc: "Use the global K<sub>zz</sub> profile of the atmosphere for this cloud."}
+  globalgasmix: {desc: "Use the global gas mixing for the condensable gas.", review: true}
+  coagulation: {desc: "Include coagulation of cloud particles."}
+  rainout: {desc: "Remove material that is thermally stable at the bottom of the atmosphere from the gas."}
+  srainout: {desc: "Saturation ratio at the bottom above which material is rained out."}
+  haze: {desc: "Include the cloud nuclei (haze) in mass and opacity."}
+  hazetype: {desc: "Material of the haze/nuclei particles (any built-in material, e.g. `SOOT`, `THOLIN`)."}
+  condensates: {desc: "Compute the condensates (set `.false.` for a pure haze cloud, `DIFFUSE` type)."}
+  condensate: {desc: "Condensate species *n* for `CONDENSATION` clouds, e.g. `cloud1:condensate01=\"MgSiO3\"`. Without a number it is appended to the list."}
+  condensenak: {desc: "Allow Na and K to condense into silicates.", review: true}
+  freeflow_con: {desc: "Free-flow lower boundary for condensates instead of full evaporation."}
+  freeflow_nuc: {desc: "Free-flow lower boundary for nuclei instead of x<sub>n</sub> = 0."}
+  computejn: {desc: "Compute the nucleation rate from classical nucleation theory instead of using `SigmaDot`.", review: true}
+  eqchemboundary: {desc: "Use equilibrium chemistry abundances as lower boundary condition (requires `chemistry=.true.`)."}
+  xv_bot: {desc: "Volume mixing ratio of condensate *n* at the bottom boundary.", review: true}
+  xm_bot: {desc: "Mass mixing ratio of condensable material at the bottom boundary.", review: true}
+  usefsed: {desc: "Use an f<sub>sed</sub> parameterisation (Rooney et al. 2022) for the sedimentation instead of the microphysics."}
+  alpha: {desc: "f<sub>sed</sub> value (alias `fsed`)."}
+  beta: {desc: "Pressure dependence of f<sub>sed</sub>.", review: true}
+  computecryst: {desc: "Compute the crystallinity of silicates (`DIFFUSE`)."}
+  cryst: {desc: "Fixed crystallinity of silicates when `computecryst=.false.`."}
+  fstick: {desc: "Sticking efficiency in coagulation."}
+  df: {desc: "Fractal dimension of aggregates."}
+  porosity: {desc: "Porosity of the cloud particles."}
+  reff: {desc: "Effective radius r<sub>eff,0</sub> of the size distribution (parameterised clouds).", unit: µm}
+  veff: {desc: "Effective width v<sub>eff</sub> of the size distribution."}
+  ns: {desc: "Number of particle sizes in the size distribution."}
+  pow_rad: {desc: "Power γ of the radius variation with pressure: r<sub>eff</sub> = r<sub>nuc</sub> + r<sub>eff,0</sub>(P/P<sub>ref</sub>)<sup>γ</sup>."}
+  pref: {desc: "Reference pressure P<sub>ref</sub> of the radius power law.", unit: bar}
+  rnuc: {desc: "Radius of the nuclei / smallest particles.", unit: µm}
+  rnuc_phot: {desc: "Radius of photochemical haze nuclei.", unit: µm, review: true}
+  fmax: {desc: "Irregularity parameter of the DHS particle shape model; 0 = homogeneous spheres (Mie)."}
+  blend: {desc: "Mix materials with effective medium theory (otherwise separate particles).", review: true}
+  kappa: {desc: "κ<sub>0</sub> of the `PARAMETERISED` opacity.", unit: "cm² g⁻¹"}
+  lam_kappa: {desc: "Transition wavelength λ<sub>0</sub> from grey to power law.", unit: µm}
+  pow_kappa: {desc: "Power p of the parameterised opacity."}
+  albedo: {desc: "Single scattering albedo of the parameterised opacity."}
+  g: {desc: "Asymmetry parameter (Henyey–Greenstein) for `OPACITY`-type clouds.", review: true}
+  kappa_gauss: {desc: "Strength of an added Gaussian absorption feature.", review: true}
+  lam_gauss: {desc: "Central wavelength of the Gaussian feature.", unit: µm, review: true}
+  dlam_gauss: {desc: "Width of the Gaussian feature.", unit: µm, review: true}
+  n: {desc: "Real part of the refractive index (`REFIND`)."}
+  k: {desc: "Imaginary part of the refractive index (`REFIND`)."}
+  material: {desc: "Built-in material *n* (`MATERIAL` opacity), or a refractive index file."}
+  lnkfile: {desc: "Refractive index file *n* (λ [µm], n, k)."}
+  lnkfilex: {desc: "Refractive index file *n* for the x crystal axis (also `lnkfiley`, `lnkfilez`)."}
+  lnkfiley: {desc: "Refractive index file *n* for the y crystal axis."}
+  lnkfilez: {desc: "Refractive index file *n* for the z crystal axis."}
+  abun: {desc: "Abundance of material *n* in the mixture."}
+  rho_mat: {desc: "Material density of material *n*.", unit: "g cm⁻³"}
+  x_slider: {desc: "Continuous mixing between materials: a value x between i and i+1 mixes material i and i+1 (for retrievals).", review: true}
+  file: {desc: "File with the cloud structure (`FILE`/`FILEDRIFT` types) or opacities."}
+  composition: {desc: "Composition string of the cloud.", review: true}
+  fixcloud: {desc: "Keep the cloud structure fixed after iteration *n*.", review: true}

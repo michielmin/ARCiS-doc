@@ -1,47 +1,73 @@
-# About ARCiS
+# ARCiS
 
-Below you can find some information on the general idea behind ARCiS, what it is designed to do, 
-and how to use the code responsibly.
+<div style="text-align:center" markdown>
+![ARCiS logo](assets/ARCiS-400.png){ width="220" }
+</div>
 
-On a fundamental level ARCiS is designed to enable a better understanding of our place in the universe.
-It provides a tool to connect observations to theory and thereby helps us to understand the underlying
-physics and chemistry of exoplanets. It models a planet's atmosphere, cloud structure and surface properties.
+**ARCiS** — the *ARtful modelling Code for exoplanet Science* — is a framework for
+modelling and retrieving exoplanet atmospheres. It combines a fast radiative transfer
+code with physically motivated models for the chemistry, the temperature structure and
+cloud formation, wrapped in a Bayesian retrieval framework. ARCiS is written in Fortran
+and has an optional Python interface.
 
-<img src="ARCiS.png" alt="ARCiS logo" width="50%" height="50%">
+The modelling philosophy is described in [Min et al. (2020)](citing.md): rather than
+fitting free abundances only, ARCiS can retrieve the *physical* parameters that set the
+atmosphere (metallicity, C/O, irradiation, mixing, nucleation rates, …) and compute the
+composition, temperature and clouds consistently from those.
 
-## Terms of Use
+## What ARCiS can do
 
-By using ARCiS, you agree to the following:
+<div class="grid cards" markdown>
 
-- If in doubt on any of the results, consult with me. Email: M.Min@sron.nl
-- You cite the appropriate papers listed below.
+-   **Forward models**
 
-The most important reason for this is to ensure that ARCiS is used correctly and the results are scientifically useful. ARCiS is a complex code that can do a lot of things, which also means things can go wrong. Please refer to *Min et al. (2020)* for the first full description of the fundamental properties of the code.
+    Transmission, emission and reflected-light spectra and phase curves, from 1D
+    atmospheres or pseudo-3D (β-map) planets.
 
-### Note on Code Contributions
+-   **Chemistry**
 
-There are several parts of the code from different developers:
+    Free abundances, equilibrium chemistry with GGchem, disequilibrium chemistry from
+    vertical mixing, and a parameterised photochemistry scheme.
 
-- Cloud formation framework: *Ormel and Min (2019)*
-- Optical properties of cloud particles computed using DHS: *Min et al. (2005); Toon and Ackerman (1981)*
-- Refractive indices for the cloud species, see references in *Min et al. (2020)*
-- Molecular opacities: *Chubb et al. (2021)* and references therein
-- Multinest Retrieval tools: *Feroz and Hobson (2008); Feroz et al. (2009, 2019)*
-- GGchem when including chemistry: *Woitke et al. (2018)*
-- Disequilibrium chemistry implementation: *Kawashima and Min (2021)*
-- Diffusion implementation for 3D structures: *Chubb and Min (2022)*
-- Coupling with planet formation parameters: *Khorshid et al. (2022)*
+-   **Temperature structure**
 
-## Modeling philosophy
+    Power-law and parameterised (Guillot) profiles, free profiles for retrievals, or a
+    self-consistent radiative–convective temperature structure.
 
-### Artful modeling
+-   **Clouds**
 
+    Self-consistent cloud formation with diffusion, sedimentation and coagulation, or
+    parameterised cloud layers, decks and hazes with optical properties from
+    refractive indices (Mie, DHS).
 
-### Connecting observations to theory
+-   **Retrievals**
 
+    MultiNest nested sampling, MCMC and optimal estimation, with correlated noise
+    models, multiple data sets and Gaussian-process surface albedo retrievals.
 
-## Forward modeling
+-   **Python interface**
 
-## Retrieval
+    Initialise ARCiS from Python, change keywords and compute spectra in a loop, or
+    drive your own sampler with the ARCiS forward model.
 
+</div>
 
+## Where to start
+
+* New users: follow [Installation](getting-started/installation.md) and the
+  [Quick start](getting-started/quickstart.md).
+* Writing an input file: read [Input files](user-guide/input-files.md) and look up
+  options in the [Keyword reference](reference/keywords.md).
+* Running a retrieval: see [Retrievals](user-guide/retrieval.md).
+
+## Terms of use
+
+By using ARCiS you agree to:
+
+* consult with the developers if there is any doubt about the results before
+  publication (contact: [M.Min@sron.nl](mailto:M.Min@sron.nl));
+* cite the appropriate papers listed under [Citing ARCiS](citing.md).
+
+ARCiS is a complex code that can do a lot of things, which also means things can go
+wrong. These terms are there to make sure ARCiS is used correctly and that the results
+are scientifically useful.
