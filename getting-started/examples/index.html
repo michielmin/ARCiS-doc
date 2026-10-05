@@ -458,6 +458,8 @@
       
         
       
+        
+      
     
     
     
@@ -541,6 +543,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../quickstart/" class="md-nav__link">
         
   
@@ -578,24 +608,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Examples
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -612,36 +624,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-walk-through-exampleretrievalin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A walk through Example/Retrieval.in
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1301,8 +1283,6 @@
       
         
       
-        
-      
     
     
     
@@ -1363,34 +1343,6 @@
     
   
     Code structure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/tests/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tests
   
 
     
@@ -1486,25 +1438,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-walk-through-exampleretrievalin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A walk through Example/Retrieval.in
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1525,7 +1458,7 @@
 
 <h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h1>
 <p>The repository contains example input files in <code>Example/</code> and regression tests in
-<code>Tests/</code> (see <a href="../../developer/tests/">Tests</a>). The test inputs are run regularly and are
+<code>Tests/</code> (see <a href="../developer/tests.md">Tests</a>). The test inputs are run regularly and are
 the most reliable starting point.</p>
 <table>
 <thead>
@@ -1585,52 +1518,6 @@ the most reliable starting point.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Outdated examples</p>
-<p><code>Example/Earth.in</code> still uses an old cloud setup (<code>cloud1:column</code>,
-<code>cloud1:standard</code>, <code>cloud1:amin</code>, …) that the current code does not recognise,
-so ARCiS stops with <em>Unknown cloud keyword</em>. Use <code>Tests/Earth.in</code> instead.</p>
-</div>
-<h2 id="a-walk-through-exampleretrievalin">A walk through <code>Example/Retrieval.in</code><a class="headerlink" href="#a-walk-through-exampleretrievalin" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">* molecules that are included in the opacities</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">H2</span><span class="o">=</span><span class="s">0.85</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">He</span><span class="o">=</span><span class="s">0.15</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">H2O</span><span class="o">=</span><span class="s">1d-4</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">...</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">* read Rp, Mp, star and orbit from the database</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">planetname</span><span class="o">=</span><span class="s">WASP-017b</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">* abundances from equilibrium chemistry</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="na">chemistry</span><span class="o">=</span><span class="s">.true.</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="na">COratio</span><span class="o">=</span><span class="s">0.55</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="na">metallicity</span><span class="o">=</span><span class="s">0.2</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="na">* the data</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="na">obs1:type</span><span class="o">=</span><span class="s">&quot;trans&quot;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="na">obs1</span><span class="o">:</span><span class="s">file=WASP-17b_Sing_2015_Nature.dat</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="na">* Guillot temperature profile</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="na">par_tprofile</span><span class="o">=</span><span class="s">.true.</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="na">* retrieval parameters</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="na">fitpar:keyword</span><span class="o">=</span><span class="s">&quot;COratio&quot;</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="na">fitpar</span><span class="o">:</span><span class="s">min=0.1d0</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="na">fitpar</span><span class="o">:</span><span class="s">max=1.5d0</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="na">...</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="na">* MultiNest with 200 live points, only computing the wavelengths of the data</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="na">retrieval</span><span class="o">=</span><span class="s">.true.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="na">retrievaltype</span><span class="o">=</span><span class="s">&#39;MN&#39;</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="na">npop</span><span class="o">=</span><span class="s">200</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="na">useobsgrid</span><span class="o">=</span><span class="s">.true.</span>
-</code></pre></div>
-<p>Run it with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>Example
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ARCiS<span class="w"> </span>Retrieval.in<span class="w"> </span>-o<span class="w"> </span>retrieval_WASP17b
-</code></pre></div>
-<p>and make a corner plot of the posterior with</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>makecornerplot_pew.py<span class="w"> </span>retrieval_WASP17b
-</code></pre></div>
-<p>(<code>pew_output.dat</code> is written by a post-processing run with <code>pew=.true.</code>; see
-<a href="../../user-guide/retrieval/#post-processing">Retrievals</a>).</p>
 
 
 
