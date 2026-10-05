@@ -1,0 +1,2584 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ARtful modelling Code for exoplanet Science — documentation">
+      
+      
+        <meta name="author" content="Michiel Min">
+      
+      
+      
+        <link rel="prev" href="../temperature/">
+      
+      
+        <link rel="next" href="../radiative-transfer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Clouds - ARCiS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clouds" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ARCiS" class="md-header__button md-logo" aria-label="ARCiS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ARCiS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Clouds
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/michielmin/ARCiS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    michielmin/ARCiS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../input-files/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/keywords/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../theory/albedo-iteration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Theory notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developer/code-structure/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Developers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../citing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Citing ARCiS
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ARCiS" class="md-nav__button md-logo" aria-label="ARCiS" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    ARCiS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/michielmin/ARCiS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    michielmin/ARCiS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../input-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Input files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planet-and-grid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planet, star and grid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chemistry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Composition and chemistry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Temperature structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clouds
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clouds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#self-consistent-cloud-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-consistent cloud formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Self-consistent cloud formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condensation-clouds-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensation clouds (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffuse-clouds-old-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffuse clouds (old scheme)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-structure-from-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud structure from a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameterised-clouds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameterised clouds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameterised clouds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAYER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLAB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauss-and-halfgauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GAUSS and HALFGAUSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homogeneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HOMOGENEOUS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-opacities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud opacities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud opacities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameterised-opacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameterised opacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-size-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particle size distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-refractive-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constant refractive index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../radiative-transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opacities and radiative transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Retrievals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3D models and phase curves
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instrument-simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrument simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/keywords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/molecules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Molecules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Theory notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/albedo-iteration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Albedo iteration in 3D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/mcmc-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCMC evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/code-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../citing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citing ARCiS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#self-consistent-cloud-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-consistent cloud formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Self-consistent cloud formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condensation-clouds-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Condensation clouds (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diffuse-clouds-old-scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diffuse clouds (old scheme)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-structure-from-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud structure from a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameterised-clouds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameterised clouds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameterised clouds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LAYER
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLAB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DECK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gauss-and-halfgauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GAUSS and HALFGAUSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homogeneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HOMOGENEOUS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-opacities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud opacities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud opacities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameterised-opacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameterised opacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-size-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particle size distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-refractive-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constant refractive index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="clouds">Clouds<a class="headerlink" href="#clouds" title="Permanent link">&para;</a></h1>
+<p>ARCiS has two families of clouds:</p>
+<ul>
+<li><strong>self-consistent clouds</strong>, where the cloud structure follows from nucleation,
+  condensation, diffusion, sedimentation and coagulation;</li>
+<li><strong>parameterised clouds</strong>, where the cloud location and optical depth are set directly.</li>
+</ul>
+<p>Any number of cloud layers can be defined. Each layer is set with <code>cloudN:</code> keywords,
+where <em>N</em> is the layer number:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;CONDENSATION&#39;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">SigmaDot=1d-12</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">cloud2:type</span><span class="o">=</span><span class="s">&#39;DECK&#39;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">cloud2</span><span class="o">:</span><span class="s">Ptop=1d-2</span>
+</code></pre></div>
+<p><code>cloud0:</code> sets a value for all layers. The full list of cloud keywords and their
+defaults is in the <a href="../../reference/keywords/#cloudn-sub-keywords">keyword reference</a>.</p>
+<p>Partial cloud coverage is set per layer with <code>cloudN:coverage</code> (fraction of the planet,
+default 1). The spectrum is then the weighted sum of the cloudy and clear columns.</p>
+<h2 id="self-consistent-cloud-formation">Self-consistent cloud formation<a class="headerlink" href="#self-consistent-cloud-formation" title="Permanent link">&para;</a></h2>
+<h3 id="condensation-clouds-recommended">Condensation clouds (recommended)<a class="headerlink" href="#condensation-clouds-recommended" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;CONDENSATION&#39;</span>
+</code></pre></div>
+<p>The clouds are formed by diffusion and sedimentation, following detailed condensation
+physics using the Gibbs free energies of the condensates (Huang et al., in prep.).
+Multiple condensates can grow on the same particles, and each condensate takes the atoms
+it needs from the gas consistently.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td></td>
+<td><code>CONDENSATION</code></td>
+</tr>
+<tr>
+<td><code>condensate&lt;n&gt;</code></td>
+<td></td>
+<td>Condensate species <em>n</em> (see list below). Without a number, the species is appended.</td>
+</tr>
+<tr>
+<td><code>SigmaDot</code></td>
+<td>10<sup>-17</sup></td>
+<td>Column-integrated nucleation rate [g cm⁻² s⁻¹]</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>10<sup>-4</sup> bar</td>
+<td>Pressure of maximum nucleation</td>
+</tr>
+<tr>
+<td><code>dP</code></td>
+<td>10</td>
+<td>Width of the nucleation profile (factor in pressure)</td>
+</tr>
+<tr>
+<td><code>Kzz</code></td>
+<td></td>
+<td>K<sub>zz</sub> for this cloud [cm² s⁻¹]; only used when &gt; 0 and <code>globalKzz=.false.</code></td>
+</tr>
+<tr>
+<td><code>globalKzz</code></td>
+<td><code>.false.</code></td>
+<td>Use the global K<sub>zz</sub> profile. The global profile is also used when <code>Kzz</code> is not set.</td>
+</tr>
+<tr>
+<td><code>coagulation</code></td>
+<td><code>.true.</code></td>
+<td>Compute coagulation of cloud particles</td>
+</tr>
+<tr>
+<td><code>rainout</code></td>
+<td><code>.false.</code></td>
+<td>Remove material that is (partly) stable at the bottom boundary from the gas</td>
+</tr>
+<tr>
+<td><code>Srainout</code></td>
+<td>1</td>
+<td>Saturation ratio at the bottom above which material rains out</td>
+</tr>
+<tr>
+<td><code>haze</code></td>
+<td><code>.false.</code></td>
+<td>Include the mass and opacity of the cloud nuclei</td>
+</tr>
+<tr>
+<td><code>hazetype</code></td>
+<td><code>SOOT</code></td>
+<td>Material of the nuclei (any built-in material)</td>
+</tr>
+<tr>
+<td><code>freeflow_con</code></td>
+<td><code>.true.</code></td>
+<td>Free-flow lower boundary for condensates (instead of full evaporation)</td>
+</tr>
+<tr>
+<td><code>freeflow_nuc</code></td>
+<td><code>.true.</code></td>
+<td>Free-flow lower boundary for nuclei (instead of x<sub>n</sub> = 0)</td>
+</tr>
+<tr>
+<td><code>usefsed</code></td>
+<td><code>.false.</code></td>
+<td>Use an f<sub>sed</sub> sedimentation parameterisation (Rooney et al. 2022)</td>
+</tr>
+<tr>
+<td><code>fsed</code></td>
+<td>1</td>
+<td>Value of f<sub>sed</sub></td>
+</tr>
+<tr>
+<td><code>fmax</code></td>
+<td>0</td>
+<td>Irregularity parameter of the DHS shape model (0 = Mie spheres)</td>
+</tr>
+</tbody>
+</table>
+<p>Available condensates:</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Species</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Silicates</td>
+<td><code>SiO2</code>, <code>MgSiO3</code>, <code>Mg2SiO4</code>, <code>SiO</code>, <code>FeSiO3</code>, <code>Fe2SiO4</code>, <code>CaSiO3</code>, <code>NaAlSi3O8</code></td>
+</tr>
+<tr>
+<td>Oxides</td>
+<td><code>MgO</code>, <code>FeO</code>, <code>Fe2O3</code>, <code>Fe3O4</code>, <code>Al2O3</code>, <code>TiO2</code>, <code>CaTiO3</code>, <code>MgAl2O4</code>, <code>CaO</code></td>
+</tr>
+<tr>
+<td>Sulfides</td>
+<td><code>FeS</code>, <code>Na2S</code>, <code>ZnS</code>, <code>MnS</code></td>
+</tr>
+<tr>
+<td>Salts</td>
+<td><code>NaCl</code>, <code>KCl</code>, <code>NH4Cl</code>, <code>NaNO3</code></td>
+</tr>
+<tr>
+<td>Metals</td>
+<td><code>Fe</code>, <code>Zn</code>, <code>Mn</code>, <code>Cr</code>, <code>Ni</code>, <code>W</code></td>
+</tr>
+<tr>
+<td>Ices and others</td>
+<td><code>H2O</code>, <code>NH3</code>, <code>NH4SH</code>, <code>CH4</code>, <code>H2SO4</code>, <code>SiC</code>, <code>S</code></td>
+</tr>
+</tbody>
+</table>
+<p>The refractive indices are taken from <code>$HOME/ARCiS/Data/refind/</code>; new condensates may
+require an update of the data directory. Some species use the optical properties of a
+related material (e.g. CaSiO<sub>3</sub> uses MgSiO<sub>3</sub>, NH<sub>4</sub>SH uses
+NH<sub>3</sub>, all Ti oxides use TiO<sub>2</sub>).</p>
+<p>Example: a silicate cloud following the global K<sub>zz</sub> profile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;CONDENSATION&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">SigmaDot=1d-12</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">cloud1:condensate01</span><span class="o">=</span><span class="s">&#39;SiO2&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">cloud1:condensate02</span><span class="o">=</span><span class="s">&#39;MgSiO3&#39;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">cloud1:condensate03</span><span class="o">=</span><span class="s">&#39;Mg2SiO4&#39;</span>
+</code></pre></div>
+<p>Every condensate adds computing time.</p>
+<h3 id="diffuse-clouds-old-scheme">Diffuse clouds (old scheme)<a class="headerlink" href="#diffuse-clouds-old-scheme" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;DIFFUSE&#39;</span>
+</code></pre></div>
+<p>The cloud model of <a href="../../citing/">Ormel &amp; Min (2019)</a>, as used in
+<a href="../../citing/">Min et al. (2020)</a>. The cloud species condense one by one following a
+prescribed condensation sequence. This has the disadvantage that different materials can
+take the same atoms from the gas. Use <code>CONDENSATION</code> for new work.</p>
+<p>Specific keywords: <code>SigmaDot</code>, <code>Kzz</code>, <code>globalKzz</code>, <code>coagulation</code>, <code>rainout</code>, <code>haze</code>,
+<code>hazetype</code>, <code>condensates</code> (switch off for a pure haze), <code>computecryst</code> (compute the
+crystallinity of silicates) and <code>cryst</code> (fixed crystallinity, default 1). The opacities
+are always computed with DHS and effective medium theory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;DIFFUSE&#39;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">globalKzz=.false.</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">Kzz=1d8</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">SigmaDot=1d-12</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">computecryst=.true.</span>
+</code></pre></div>
+<p>A <code>WATER</code> type exists for water clouds with the same machinery.</p>
+<h2 id="cloud-structure-from-a-file">Cloud structure from a file<a class="headerlink" href="#cloud-structure-from-a-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;FILE&#39;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">cloud1:file</span><span class="o">=</span><span class="s">&#39;mycloud.dat&#39;</span>
+</code></pre></div>
+<p>All parameters of the cloud are read from the file. The type <code>FILEDRIFT</code> reads a cloud
+structure in the output format of the DRIFT cloud code.</p>
+<div class="admonition question">
+<p class="admonition-title">To review</p>
+<p>The file formats for <code>FILE</code> and <code>FILEDRIFT</code> are still to be documented.</p>
+</div>
+<h2 id="parameterised-clouds">Parameterised clouds<a class="headerlink" href="#parameterised-clouds" title="Permanent link">&para;</a></h2>
+<p>The parameterised cloud types set where the cloud is and how optically thick it is at a
+reference wavelength <code>lam_ref</code> (default 1 µm). The optical properties of the particles
+are set separately, see <a href="#cloud-opacities">Cloud opacities</a>. For the underlying
+equations see also the note on <a href="../../assets/CloudParameterisation.pdf">cloud parameterisation (PDF)</a>.</p>
+<h3 id="layer"><code>LAYER</code><a class="headerlink" href="#layer" title="Permanent link">&para;</a></h3>
+<p>Cloud between <code>Ptop</code> and <code>Pbottom</code> with an opacity that increases with pressure as a
+power law <span class="arithmatex">\(P^{\xi}\)</span>, normalised to reach optical depth <code>tau</code> at pressure <code>Ptau</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ptop</code></td>
+<td>0</td>
+<td>Top of the cloud [bar]</td>
+</tr>
+<tr>
+<td><code>Pbottom</code></td>
+<td>10<sup>10</sup></td>
+<td>Bottom of the cloud [bar]</td>
+</tr>
+<tr>
+<td><code>Ptau</code></td>
+<td>1 bar</td>
+<td>Pressure where optical depth <code>tau</code> is reached (if &lt; 0: <code>Pbottom</code>)</td>
+</tr>
+<tr>
+<td><code>tau</code></td>
+<td>1</td>
+<td>Optical depth at <code>lam_ref</code></td>
+</tr>
+<tr>
+<td><code>xi</code></td>
+<td>2</td>
+<td>Power law of the opacity with pressure</td>
+</tr>
+<tr>
+<td><code>lam_ref</code></td>
+<td>1 µm</td>
+<td>Reference wavelength</td>
+</tr>
+</tbody>
+</table>
+<h3 id="slab"><code>SLAB</code><a class="headerlink" href="#slab" title="Permanent link">&para;</a></h3>
+<p>Cloud between <code>Ptop</code> and <code>Pbottom</code> with a mass fraction that varies linearly with
+pressure, with total optical depth <code>tau</code> at <code>lam_ref</code>.</p>
+<h3 id="deck"><code>DECK</code><a class="headerlink" href="#deck" title="Permanent link">&para;</a></h3>
+<p>A deck with infinite extent below. The cloud is parameterised through the gradient of the
+optical depth,</p>
+<div class="arithmatex">\[
+\frac{\partial \tau}{\partial P}=C\,\exp\left(\frac{P-P_\tau}{\Phi}\right).
+\]</div>
+<p>In hydrostatic equilibrium <span class="arithmatex">\(\partial\tau/\partial P = \kappa/g\)</span>, with
+<span class="arithmatex">\(\kappa = f_{\rm cloud}\kappa_{\rm cloud}\)</span>, so that (ignoring gradients in
+<span class="arithmatex">\(f_{\rm cloud}\)</span> and <span class="arithmatex">\(\kappa_{\rm cloud}\)</span>)</p>
+<div class="arithmatex">\[
+f_{\rm cloud}=\frac{g}{\kappa_{\rm cloud}}\,C\,\exp\left(\frac{P-P_\tau}{\Phi}\right),
+\]</div>
+<p>where <span class="arithmatex">\(C\)</span> is set by requiring <span class="arithmatex">\(\tau=1\)</span> at <span class="arithmatex">\(P_\tau\)</span>. At low pressures
+<span class="arithmatex">\(f_{\rm cloud}\)</span> becomes constant, so the cloud extends with a constant mass fraction to
+the top of the atmosphere.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ptau</code></td>
+<td>1 bar</td>
+<td>Pressure where τ = 1 at <code>lam_ref</code></td>
+</tr>
+<tr>
+<td><code>dlogP</code></td>
+<td>2</td>
+<td>Pressure scale Φ over which the cloud optical depth falls off</td>
+</tr>
+<tr>
+<td><code>lam_ref</code></td>
+<td>1 µm</td>
+<td>Reference wavelength</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">To review</p>
+<p>The old documentation used <code>Ptop</code> for the τ = 1 pressure of a <code>DECK</code>; the current
+code uses <code>Ptau</code> (<code>Ptop</code> is not used by <code>DECK</code>).</p>
+</div>
+<h3 id="gauss-and-halfgauss"><code>GAUSS</code> and <code>HALFGAUSS</code><a class="headerlink" href="#gauss-and-halfgauss" title="Permanent link">&para;</a></h3>
+<p>A layer with a Gaussian profile in log P around <code>P</code> with width <code>dP</code>, total optical depth
+<code>tau</code> at <code>lam_ref</code>, and opacity power law <code>xi</code>. <code>HALFGAUSS</code> has a much steeper fall-off
+below the centre.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>P</code></td>
+<td>10<sup>-4</sup> bar</td>
+<td>Central pressure</td>
+</tr>
+<tr>
+<td><code>dP</code></td>
+<td>10</td>
+<td>Width (σ in ln P)</td>
+</tr>
+<tr>
+<td><code>tau</code></td>
+<td>1</td>
+<td>Optical depth at <code>lam_ref</code></td>
+</tr>
+<tr>
+<td><code>xi</code></td>
+<td>2</td>
+<td>Power law of the opacity with pressure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="homogeneous"><code>HOMOGENEOUS</code><a class="headerlink" href="#homogeneous" title="Permanent link">&para;</a></h3>
+<p>Not really a cloud, but a homogeneous component of the atmosphere: a constant mass
+mixing ratio <code>mixrat</code> of particles at all pressures above <code>Ptop</code>.</p>
+<h3 id="ring"><code>RING</code><a class="headerlink" href="#ring" title="Permanent link">&para;</a></h3>
+<p>Uses the cloud particle setup to give the particles of a planetary ring (see <code>doRing</code>).</p>
+<h2 id="cloud-opacities">Cloud opacities<a class="headerlink" href="#cloud-opacities" title="Permanent link">&para;</a></h2>
+<p>The opacity type is set with <code>cloudN:opacitytype</code>:</p>
+<table>
+<thead>
+<tr>
+<th><code>opacitytype</code></th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PARAMETERISED</code></td>
+<td>Parameterised opacity law</td>
+</tr>
+<tr>
+<td><code>REFIND</code></td>
+<td>Particles with a constant refractive index <em>n + ik</em></td>
+</tr>
+<tr>
+<td><code>MATERIAL</code></td>
+<td>Particles made of real materials (built-in or from lnk-files)</td>
+</tr>
+<tr>
+<td><code>FILE</code>, <code>OPACITY</code></td>
+<td>Precomputed particle opacities</td>
+</tr>
+<tr>
+<td><code>AUTO</code> (default)</td>
+<td><code>MATERIAL</code> for <code>CONDENSATION</code> clouds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="parameterised-opacity">Parameterised opacity<a class="headerlink" href="#parameterised-opacity" title="Permanent link">&para;</a></h3>
+<p>To be used when there is no information on the composition (e.g. no mid-infrared
+features):</p>
+<div class="arithmatex">\[
+\kappa_{\rm ext}=\frac{\kappa_0}{1+\left(\lambda/\lambda_0\right)^{p}}
+\]</div>
+<p><span class="arithmatex">\(\lambda_0\)</span> marks the transition from grey to a power law, which happens around
+<span class="arithmatex">\(\lambda\sim 2\pi r\)</span>. For Rayleigh scattering <span class="arithmatex">\(p=4\)</span>, for small absorbing particles
+<span class="arithmatex">\(p\approx 2\)</span>. The single-scattering albedo <span class="arithmatex">\(\omega\)</span> is wavelength independent.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kappa</code></td>
+<td>0.01</td>
+<td><span class="arithmatex">\(\kappa_0\)</span> [cm² g⁻¹]</td>
+</tr>
+<tr>
+<td><code>lam_kappa</code></td>
+<td>1 µm</td>
+<td><span class="arithmatex">\(\lambda_0\)</span></td>
+</tr>
+<tr>
+<td><code>pow_kappa</code></td>
+<td>4</td>
+<td><span class="arithmatex">\(p\)</span></td>
+</tr>
+<tr>
+<td><code>albedo</code></td>
+<td>0.99</td>
+<td><span class="arithmatex">\(\omega\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="particle-size-distribution">Particle size distribution<a class="headerlink" href="#particle-size-distribution" title="Permanent link">&para;</a></h3>
+<p>For <code>REFIND</code> and <code>MATERIAL</code> the particles have a size distribution (Hansen
+distribution)</p>
+<div class="arithmatex">\[
+n(r)\,{\rm d}r\propto r^{\frac{1-3v_{\rm eff}}{v_{\rm eff}}}
+\exp\left(-\frac{r}{r_{\rm eff}v_{\rm eff}}\right),\qquad r &gt; r_{\rm nuc},
+\]</div>
+<p>with an effective radius varying with pressure:</p>
+<div class="arithmatex">\[
+r_{\rm eff}=r_{\rm nuc}+r_{\rm eff,0}\left(\frac{P}{P_{\rm ref}}\right)^{\gamma}.
+\]</div>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reff</code></td>
+<td>1 µm</td>
+<td><span class="arithmatex">\(r_{\rm eff,0}\)</span></td>
+</tr>
+<tr>
+<td><code>veff</code></td>
+<td>0.1</td>
+<td><span class="arithmatex">\(v_{\rm eff}\)</span>, dimensionless width</td>
+</tr>
+<tr>
+<td><code>pow_rad</code></td>
+<td>0</td>
+<td><span class="arithmatex">\(\gamma\)</span> (&gt; 0: larger particles deeper down)</td>
+</tr>
+<tr>
+<td><code>Pref</code></td>
+<td>1 bar</td>
+<td><span class="arithmatex">\(P_{\rm ref}\)</span></td>
+</tr>
+<tr>
+<td><code>rnuc</code></td>
+<td>0.001 µm</td>
+<td>Smallest particle radius</td>
+</tr>
+<tr>
+<td><code>nsize</code></td>
+<td>1</td>
+<td>Number of sizes in the distribution</td>
+</tr>
+<tr>
+<td><code>fmax</code></td>
+<td>0</td>
+<td>Irregularity (DHS); 0 = homogeneous spheres (Mie)</td>
+</tr>
+<tr>
+<td><code>porosity</code></td>
+<td>0</td>
+<td>Porosity</td>
+</tr>
+</tbody>
+</table>
+<p>The particle shape is modelled with a distribution of hollow spheres (DHS,
+<a href="../../citing/">Min et al. 2005</a>) with irregularity parameter <code>fmax</code>.</p>
+<h3 id="constant-refractive-index">Constant refractive index<a class="headerlink" href="#constant-refractive-index" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">cloud1:opacitytype</span><span class="o">=</span><span class="s">&#39;REFIND&#39;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">n=1.5</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">k=0.01</span>
+</code></pre></div>
+<p>Works best for narrow wavelength ranges where the refractive index does not vary much.</p>
+<h3 id="real-materials">Real materials<a class="headerlink" href="#real-materials" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">cloud1:opacitytype</span><span class="o">=</span><span class="s">&#39;MATERIAL&#39;</span>
+</code></pre></div>
+<p>Materials are numbered; each is a built-in material or read from a refractive index file
+(three columns: wavelength [µm], n, k). For a file, set <code>material&lt;n&gt;='FILE'</code> and give the
+file with <code>lnkfile&lt;n&gt;</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>material&lt;n&gt;</code></td>
+<td>Built-in material name, or <code>FILE</code> to read <code>lnkfile&lt;n&gt;</code></td>
+</tr>
+<tr>
+<td><code>lnkfile&lt;n&gt;</code></td>
+<td>Refractive index file (isotropic)</td>
+</tr>
+<tr>
+<td><code>lnkfilex&lt;n&gt;</code>, <code>lnkfiley&lt;n&gt;</code>, <code>lnkfilez&lt;n&gt;</code></td>
+<td>Files for the three crystal axes (all three must be given)</td>
+</tr>
+<tr>
+<td><code>abun&lt;n&gt;</code></td>
+<td>Abundance of material <em>n</em> in the mixture</td>
+</tr>
+<tr>
+<td><code>rho_mat&lt;n&gt;</code></td>
+<td>Material density [g cm⁻³]</td>
+</tr>
+</tbody>
+</table>
+<p>Pure forsterite with anisotropic optical constants:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="na">cloud1:opacitytype</span><span class="o">=</span><span class="s">&#39;MATERIAL&#39;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="na">cloud1:material</span><span class="o">=</span><span class="s">&#39;FILE&#39;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="na">cloud1:lnkfilex</span><span class="o">=</span><span class="s">&#39;forsterite_x.lnk&#39;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="na">cloud1:lnkfiley</span><span class="o">=</span><span class="s">&#39;forsterite_y.lnk&#39;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="na">cloud1:lnkfilez</span><span class="o">=</span><span class="s">&#39;forsterite_z.lnk&#39;</span>
+</code></pre></div>
+<p>A mixture of a built-in material and anisotropic forsterite:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="na">cloud1:opacitytype</span><span class="o">=</span><span class="s">&#39;MATERIAL&#39;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="na">cloud1:material01</span><span class="o">=</span><span class="s">&#39;ENSTATITE&#39;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="na">cloud1:material02</span><span class="o">=</span><span class="s">&#39;FILE&#39;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="na">cloud1:lnkfilex02</span><span class="o">=</span><span class="s">&#39;forsterite_x.lnk&#39;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="na">cloud1:lnkfiley02</span><span class="o">=</span><span class="s">&#39;forsterite_y.lnk&#39;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="na">cloud1:lnkfilez02</span><span class="o">=</span><span class="s">&#39;forsterite_z.lnk&#39;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">abun01=0.4</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">abun02=0.6</span>
+</code></pre></div>
+<p>Built-in materials: <code>ENSTATITE</code>, <code>FORSTERITE</code>, <code>ASTROSIL</code>/<code>OLIVINE</code>, <code>PYROXENE</code>,
+<code>SiO2</code>/<code>QUARTZ</code>, <code>A-SiO2</code>, <code>SiO</code>, <code>SiC</code>, <code>IRON</code>, <code>CORRUNDUM</code>, <code>FeO</code>, <code>MgO</code>,
+<code>RUTILE</code>/<code>BROOKITE</code>/<code>TiO2</code>, <code>WATER</code>, <code>H2SO4</code>, <code>CARBON</code>, <code>SOOT</code>, <code>ORGANICS</code>, <code>THOLIN</code>,
+<code>optEC</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">To review</p>
+<p>In the old user guide the lnk-file examples did not set <code>material&lt;n&gt;='FILE'</code>.
+From the code (<code>SetupMaterialCloud</code>) this appears to be required — the default
+material <code>AUTO</code> stops with <em>Material unknown</em>. Please confirm.</p>
+</div>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>A parameterised cloud layer reaching τ = 1 at 1 bar with a steep opacity increase:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;LAYER&#39;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">Ptop=1d-3</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">Ptau=1d0</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">xi=4</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="na">cloud1:opacitytype</span><span class="o">=</span><span class="s">&#39;PARAMETERISED&#39;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">kappa=100</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">pow_kappa=2</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">albedo=0.1</span>
+</code></pre></div>
+<p>A patchy water cloud on an Earth-like planet (from <code>Tests/Earth.in</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;CONDENSATION&#39;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="na">cloud1:condensate</span><span class="o">=</span><span class="s">&#39;H2O&#39;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">Kzz=1d8</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">coverage=0.35</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">usefsed=.true.</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">fsed=2d0</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="na">cloud1</span><span class="o">:</span><span class="s">globalGasMix=.true.</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../temperature/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Temperature structure">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Temperature structure
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../radiative-transfer/" class="md-footer__link md-footer__link--next" aria-label="Next: Opacities and radiative transfer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Opacities and radiative transfer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Michiel Min and ARCiS contributors
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
