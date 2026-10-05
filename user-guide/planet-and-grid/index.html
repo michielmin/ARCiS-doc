@@ -1788,12 +1788,11 @@ cloud boundaries so that sharp cloud tops are resolved.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>For self-consistent temperature structures (<code>computeT=.true.</code>) the wavelength range
-must be wide enough to capture the bulk of the stellar and planetary flux, otherwise
-energy balance is not correct. Something like <code>lmin=0.2</code>, <code>lmax=30</code> or wider is a
-good start.</p>
+for the radiative transfer is automatically set to run from 0.11 - 47 µm to capture the bulk 
+of the energy from both the star and the planet.</p>
 </div>
 <p>In retrievals, use <code>useobsgrid=.true.</code> to only compute the spectrum at the wavelengths
 where there are observations. This can save a lot of time.</p>
