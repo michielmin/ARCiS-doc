@@ -78,11 +78,10 @@ The structure can also be read from a file: with `gridTPfile=.true.` the pressur
 | `specres` | 10 | Spectral resolution λ/Δλ of the output spectrum |
 | `specres_LR` | 10 | Resolution of the low-resolution grid used in temperature computations |
 
-!!! tip
+!!! note
     For self-consistent temperature structures (`computeT=.true.`) the wavelength range
-    must be wide enough to capture the bulk of the stellar and planetary flux, otherwise
-    energy balance is not correct. Something like `lmin=0.2`, `lmax=30` or wider is a
-    good start.
+    for the radiative transfer is automatically set to run from 0.11 - 47 µm to capture the bulk 
+    of the energy from both the star and the planet.
 
 In retrievals, use `useobsgrid=.true.` to only compute the spectrum at the wavelengths
 where there are observations. This can save a lot of time.
