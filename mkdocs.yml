@@ -40,6 +40,7 @@ nav:
   - Home: index.md
   - Getting started:
       - Installation: getting-started/installation.md
+      - Tests: getting-started/tests.md
       - Quick start: getting-started/quickstart.md
       - Examples: getting-started/examples.md
   - User guide:
@@ -62,7 +63,6 @@ nav:
       - MCMC evidence: theory/mcmc-evidence.md
   - Developers:
       - Code structure: developer/code-structure.md
-      - Tests: developer/tests.md
       - Writing documentation: developer/documentation.md
   - Citing ARCiS: citing.md
 

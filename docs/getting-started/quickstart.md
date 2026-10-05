@@ -31,6 +31,7 @@ pmax=1d+3
 lmin=0.25d0
 lmax=5d0
 specres=150
+
 ```
 
 and run

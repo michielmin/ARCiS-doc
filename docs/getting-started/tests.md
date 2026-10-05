@@ -36,11 +36,3 @@ every compared file, with the maximum relative error.
 3. Add an entry to the `tests` list in `dotest.py` with the input file, the reference
    directory, the files to compare and the tolerance.
 
-!!! warning "Absolute paths"
-    Several test inputs (`Malik*.dat`, `Earth.in`, `SAG26_tau*.in`) refer to files
-    with absolute paths under `/Users/michielm/`. On other machines these tests fail
-    until the paths are changed, e.g. to paths relative to `$HOME/ARCiS/Data`.
-
-!!! note
-    Tests that involve random numbers (Monte Carlo scattering, self-consistent
-    temperature structures) need a looser tolerance.
