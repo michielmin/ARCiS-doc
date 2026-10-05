@@ -70,7 +70,7 @@ All input handling is in `Init.f`:
 | Directory | Contents |
 |---|---|
 | `Example/` | Example input files and data |
-| `Tests/` | Regression tests, see [Tests](tests.md) |
+| `Tests/` | Regression tests, see [Tests](../getting-started/tests.md) |
 | `doc/` | Old LaTeX documentation (superseded by this site) |
 | `docs/` | This documentation (mkdocs) |
 | `python/`, `notebooks/` | Notebooks for the Python interface and plotting |

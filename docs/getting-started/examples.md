@@ -1,7 +1,7 @@
 # Examples
 
 The repository contains example input files in `Example/` and regression tests in
-`Tests/` (see [Tests](../developer/tests.md)). The test inputs are run regularly and are
+`Tests/` (see [Tests](tests.md)). The test inputs are run regularly and are
 the most reliable starting point.
 
 | File | What it shows |
