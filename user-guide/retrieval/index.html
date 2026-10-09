@@ -1851,6 +1851,11 @@ transmission from one instrument and emission from another).</p>
 </table>
 <p>By default emission data (<code>emis</code>) are compared in log space (<code>logemis=.true.</code>); this
 requires positive fluxes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The observation types <code>lightcurve</code> and <code>tprofile</code> are not straightforward to use
+and it is thus not adviced to use them unless the user knows exactly what is going on.</p>
+</div>
 <h3 id="observation-files">Observation files<a class="headerlink" href="#observation-files" title="Permanent link">&para;</a></h3>
 <p>Spectra are plain text files with one wavelength bin per line:</p>
 <table>
@@ -1906,7 +1911,7 @@ data. This speeds up retrievals considerably. It is required for <code>fit_albed
 <h2 id="retrieval-parameters">Retrieval parameters<a class="headerlink" href="#retrieval-parameters" title="Permanent link">&para;</a></h2>
 <p>Each <code>fitpar:keyword=</code> line starts a new parameter; the following <code>fitpar:</code> lines
 apply to it. <strong>Any input keyword can be retrieved</strong>, including molecule abundances,
-cloud parameters (<code>cloud1:SigmaDot</code>), temperature-profile parameters and planet
+cloud parameters (e.g. <code>cloud1:SigmaDot</code>), temperature-profile parameters and planet
 parameters.</p>
 <table>
 <thead>
@@ -1986,7 +1991,7 @@ parameters.</p>
 </tr>
 <tr>
 <td><code>FULL</code></td>
-<td>MultiNest followed by MCMC</td>
+<td>Gradient based method followed by MCMC</td>
 </tr>
 </tbody>
 </table>
@@ -2053,9 +2058,9 @@ points (e.g. <code>npop=400</code>) for production runs.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>npop</code></td>
+<td><code>nburn</code></td>
 <td>30</td>
-<td>Number of walkers / burn-in</td>
+<td>Number of burn-in steps</td>
 </tr>
 <tr>
 <td><code>npost</code></td>
@@ -2106,10 +2111,10 @@ points (e.g. <code>npop=400</code>) for production runs.</p>
 </tbody>
 </table>
 <div class="admonition question">
-<p class="admonition-title">To review</p>
+<p class="admonition-title">Todo</p>
 <p>The correlated-noise model (<code>cov_*</code>, localised components <code>cov_*_loc</code>) and the
 scaling/offset options (<code>obs&lt;n&gt;:scaling</code>, <code>slope</code>, <code>offset</code>) need a description of
-the equations used.</p>
+the equations used. It is based on the work by <a href="https://iopscience.iop.org/article/10.3847/1538-4357/adef04">Rotman et al. (2025)</a></p>
 </div>
 <h2 id="output-of-a-retrieval">Output of a retrieval<a class="headerlink" href="#output-of-a-retrieval" title="Permanent link">&para;</a></h2>
 <table>
@@ -2120,10 +2125,6 @@ the equations used.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><code>retrieval</code></td>
-<td>Best fit and uncertainties of all parameters</td>
-</tr>
 <tr>
 <td><code>bestfit.dat</code></td>
 <td>Input file of the best-fit model — rerun with <code>ARCiS bestfit.dat -o best</code></td>
@@ -2152,10 +2153,6 @@ the equations used.</p>
 <td><code>obs001</code>, <code>obs002</code>, …</td>
 <td>Data and best-fit model at the data points</td>
 </tr>
-<tr>
-<td><code>limits.dat</code>, <code>trans_limits.dat</code>, <code>PT_limits</code>, …</td>
-<td>Confidence intervals of spectra and structure</td>
-</tr>
 </tbody>
 </table>
 <h2 id="post-processing">Post-processing<a class="headerlink" href="#post-processing" title="Permanent link">&para;</a></h2>
@@ -2168,6 +2165,29 @@ writes confidence intervals of the spectra and the P–T structure, the median p
 including derived C/O and metallicity (<code>retrieval</code>), an input file for the median probability model
 (<code>mpm.dat</code>), and <code>pew_output.dat</code> for corner plots (see
 <code>Example/makecornerplot_pew.py</code>).</p>
+<p>Files created after post-processing this way:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>retrieval</code></td>
+<td>Median values and uncertainties of all parameters</td>
+</tr>
+<tr>
+<td><code>pew_output.dat</code></td>
+<td>posterior samples used in the run</td>
+</tr>
+<tr>
+<td><code>XXXX_limits.dat</code>, <code>trans_limits.dat</code>, <code>PT_limits</code>, …</td>
+<td>Confidence intervals of spectra and structure</td>
+</tr>
+</tbody>
+</table>
 
 
 
