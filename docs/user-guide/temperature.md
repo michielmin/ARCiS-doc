@@ -74,7 +74,8 @@ This adds the temperature gradients at the points (and their pressures, with
 With `computeT=.true.` ARCiS computes the temperature structure in radiative–convective
 equilibrium, iterating between the structure (chemistry, clouds) and the radiative
 transfer. The radiative transfer for the temperature is solved on a low-resolution
-wavelength grid (`specres_LR`), including scattering.
+wavelength grid from 0.11 µm to 47 µm with a spectral resolution set by `specres_LR`.
+The computation of the temperature structure always includes the effects of scattering.
 
 | Keyword | Default | Meaning |
 |---|---|---|
