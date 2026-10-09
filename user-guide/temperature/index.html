@@ -1747,7 +1747,8 @@ interpolation (<code>taurexprofile</code>). These options still need a descripti
 <p>With <code>computeT=.true.</code> ARCiS computes the temperature structure in radiative–convective
 equilibrium, iterating between the structure (chemistry, clouds) and the radiative
 transfer. The radiative transfer for the temperature is solved on a low-resolution
-wavelength grid (<code>specres_LR</code>), including scattering.</p>
+wavelength grid from 0.11 µm to 47 µm with a spectral resolution set by <code>specres_LR</code>.
+The computation of the temperature structure always includes the effects of scattering.</p>
 <table>
 <thead>
 <tr>
