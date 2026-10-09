@@ -1750,15 +1750,16 @@ transform, so an external sampler only needs a likelihood:</p>
 <p><code>pytransformretpar(x, i)</code> maps a unit-cube value to parameter <em>i</em>: uniform between
 <code>min</code> and <code>max</code>, and for <code>log=.true.</code> parameters it returns log<sub>10</sub> of the value.
 <code>pymapretrieval</code> takes these values and sets all keywords.</p>
-<div class="admonition question">
-<p class="admonition-title">To review</p>
+<div class="admonition warning">
+<p class="admonition-title">Python interface still under construction</p>
 <ul>
 <li><code>python/ARCiS_retrieval.ipynb</code> calls <code>pyARCiS.pygetlike()</code>, which does not exist
-  in <code>MainPy.f90</code>. Either the notebook or the interface needs updating.</li>
+  in <code>MainPy.f90</code>.</li>
 <li><code>pygetobs</code> returns the model at the data points as stored by the last retrieval
   likelihood evaluation; <code>pycomputemodel</code> alone does not seem to update it. A
   <code>pygetlike</code>-style function that computes the ARCiS likelihood (with binning and
-  covariances) would make external samplers much easier.</li>
+  covariances) would make external samplers much easier so this will be added in the
+  future.</li>
 </ul>
 </div>
 
