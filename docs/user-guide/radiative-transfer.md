@@ -10,16 +10,6 @@ g-points (default 25); `useXS=.true.` switches to cross-section tables.
 Only molecules that appear in the input file are read. Molecule tables are binned to the
 ARCiS wavelength grid set by `lmin`, `lmax` and `specres`.
 
-### Computing opacity tables
-
-`opacitymode=.true.` does not compute an atmosphere but writes opacity tables on a
-pressure–temperature grid (`np` × `nt` points between `pmin`–`pmax` and `Tmin`–`Tmax`)
-to the output directory.
-
-!!! question "To review"
-    How to generate opacity tables for new species (and which input data are needed)
-    still needs to be described.
-
 ## Continuum opacities
 
 | Keyword | Default | Meaning |
@@ -55,10 +45,13 @@ atmosphere.
 | `anisoscattstar` | `.false.` | Anisotropic scattering of stellar light (otherwise isotropic) |
 | `Nphot` | 2500 | Number of photon packages for the Monte Carlo scattering computation |
 
-With scattering switched on, the emission spectrum is computed with a Monte Carlo
-radiative transfer that includes multiple scattering by gas and cloud particles.
-Reflected light needs `scattstar=.true.`; for an accurate phase dependence use
-`anisoscattstar=.true.`.
+!!! Tip "Scattering"
+	Scattering in ARCiS is computed differntly in 3D mode and 1D mode. When running in the default 1D mode
+	scattering is computed with Monte Carlo radiative transfer, which is slow and noisy.
+	It is therefore strongly recommended to use 3D mode for accurate scattering results 
+	(see [3D models and phasecurves](3d.md)).
+
+Reflected light needs `scattstar=.true.`; for an accurate phase dependence use `anisoscattstar=.true.`.
 
 ## Surface
 
@@ -88,4 +81,6 @@ bidirectional reflectance model, instead of Lambertian surfaces.
 evaluation the albedo spectrum is solved for with a Gaussian-process prior (with an
 optional step for the vegetation red edge and a linear slope). This requires
 `useobsgrid=.true.`. The GP options are listed under *Surface* in the
-[keyword reference](../reference/keywords.md#surface).
+[keyword reference](../reference/keywords.md#surface). This mode is currently still under construction
+and will be published soon and rolled out as a standard feature.
+

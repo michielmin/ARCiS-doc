@@ -48,12 +48,6 @@ cloudy parts of the atmosphere.
 
 Retrieval output is described in [Retrievals](retrieval.md#output-of-a-retrieval).
 
-!!! question "To review"
-    This list was compiled from the source code (`WriteOutput.f`,
-    `SetupStructure.f`, `Retrieval.f`). Please check that the most important files
-    and their columns are described correctly, and which files are mainly for
-    debugging.
-
 ## Reading the output in Python
 
 ```python

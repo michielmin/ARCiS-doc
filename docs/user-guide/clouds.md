@@ -31,7 +31,7 @@ cloud1:type='CONDENSATION'
 ```
 
 The clouds are formed by diffusion and sedimentation, following detailed condensation
-physics using the Gibbs free energies of the condensates (Huang et al., in prep.).
+physics using the Gibbs free energies of the condensates [Huang et al. (2024)](https://doi.org/10.1051/0004-6361/202451112).
 Multiple condensates can grow on the same particles, and each condensate takes the atoms
 it needs from the gas consistently.
 
@@ -51,9 +51,11 @@ it needs from the gas consistently.
 | `hazetype` | `SOOT` | Material of the nuclei (any built-in material) |
 | `freeflow_con` | `.true.` | Free-flow lower boundary for condensates (instead of full evaporation) |
 | `freeflow_nuc` | `.true.` | Free-flow lower boundary for nuclei (instead of x<sub>n</sub> = 0) |
-| `usefsed` | `.false.` | Use an f<sub>sed</sub> sedimentation parameterisation (Rooney et al. 2022) |
+| `usefsed` | `.false.` | Use an f<sub>sed</sub> sedimentation parameterisation |
 | `fsed` | 1 | Value of f<sub>sed</sub> |
 | `fmax` | 0 | Irregularity parameter of the DHS shape model (0 = Mie spheres) |
+
+When `cloud<n>:globalKzz=.true.` the profile will be used as described in [Composition and chemistry](../user-guide/chemistry.md)
 
 Available condensates:
 
@@ -65,6 +67,11 @@ Available condensates:
 | Salts | `NaCl`, `KCl`, `NH4Cl`, `NaNO3` |
 | Metals | `Fe`, `Zn`, `Mn`, `Cr`, `Ni`, `W` |
 | Ices and others | `H2O`, `NH3`, `NH4SH`, `CH4`, `H2SO4`, `SiC`, `S` |
+
+In addition, when the crystalline silicates `FORSTERITE`, `ENSTATITE`, `FAYALITE`, or `FERROSILITE` 
+are added to the species list along with their amorphous counterparts, the crystallinity of that 
+silicate component is computed from the temperature dependent crystallization timescale assuming 
+silicate condense amorphous.
 
 The refractive indices are taken from `$HOME/ARCiS/Data/refind/`; new condensates may
 require an update of the data directory. Some species use the optical properties of a
@@ -119,7 +126,7 @@ cloud1:file='mycloud.dat'
 All parameters of the cloud are read from the file. The type `FILEDRIFT` reads a cloud
 structure in the output format of the DRIFT cloud code.
 
-!!! question "To review"
+!!! question "Todo"
     The file formats for `FILE` and `FILEDRIFT` are still to be documented.
 
 ## Parameterised clouds
@@ -158,8 +165,7 @@ optical depth,
 \]
 
 In hydrostatic equilibrium \(\partial\tau/\partial P = \kappa/g\), with
-\(\kappa = f_{\rm cloud}\kappa_{\rm cloud}\), so that (ignoring gradients in
-\(f_{\rm cloud}\) and \(\kappa_{\rm cloud}\))
+\(\kappa = f_{\rm cloud}\kappa_{\rm cloud}\), so that 
 
 \[
 f_{\rm cloud}=\frac{g}{\kappa_{\rm cloud}}\,C\,\exp\left(\frac{P-P_\tau}{\Phi}\right),
@@ -174,10 +180,6 @@ the top of the atmosphere.
 | `Ptau` | 1 bar | Pressure where τ = 1 at `lam_ref` |
 | `dlogP` | 2 | Pressure scale Φ over which the cloud optical depth falls off |
 | `lam_ref` | 1 µm | Reference wavelength |
-
-!!! question "To review"
-    The old documentation used `Ptop` for the τ = 1 pressure of a `DECK`; the current
-    code uses `Ptau` (`Ptop` is not used by `DECK`).
 
 ### `GAUSS` and `HALFGAUSS`
 
@@ -318,11 +320,6 @@ Built-in materials: `ENSTATITE`, `FORSTERITE`, `ASTROSIL`/`OLIVINE`, `PYROXENE`,
 `SiO2`/`QUARTZ`, `A-SiO2`, `SiO`, `SiC`, `IRON`, `CORRUNDUM`, `FeO`, `MgO`,
 `RUTILE`/`BROOKITE`/`TiO2`, `WATER`, `H2SO4`, `CARBON`, `SOOT`, `ORGANICS`, `THOLIN`,
 `optEC`.
-
-!!! question "To review"
-    In the old user guide the lnk-file examples did not set `material<n>='FILE'`.
-    From the code (`SetupMaterialCloud`) this appears to be required — the default
-    material `AUTO` stops with *Material unknown*. Please confirm.
 
 ## Examples
 

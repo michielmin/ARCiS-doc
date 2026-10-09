@@ -64,7 +64,7 @@ This adds the temperature gradients at the points (and their pressures, with
 | `wiggle_err` | Penalise wiggles (curvature) in the profile; ≤0 switches this off |
 | `logTprofile` | Sample temperatures logarithmically between `Tmin` and `Tmax` |
 
-!!! question "To review"
+!!! question "Todo"
     The free profile can also be built from visible- and IR-channel points
     (`tauVpoint`, `tauIRpoint`, `dTVpoint`, `dTIRpoint`) and has a TauREx-like
     interpolation (`taurexprofile`). These options still need a description.
@@ -86,10 +86,6 @@ wavelength grid (`specres_LR`), including scattering.
 | `specres_LR` | 10 | Spectral resolution of the radiative transfer grid |
 | `exp_ad` | 1.4 | Adiabatic exponent |
 | `useEOS` | `.false.` | Adiabatic gradient from tabulated EOS |
-
-!!! tip
-    Make sure the wavelength range (`lmin`, `lmax`) covers the bulk of both the stellar
-    and the planetary emission, or the energy balance will be wrong.
 
 With `par_tprofile=.true.` and `computeT=.true.` the Guillot profile is used as starting
 point of the iteration.

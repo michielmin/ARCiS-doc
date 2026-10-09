@@ -1934,7 +1934,7 @@ default 1). The spectrum is then the weighted sum of the cloudy and clear column
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;CONDENSATION&#39;</span>
 </code></pre></div>
 <p>The clouds are formed by diffusion and sedimentation, following detailed condensation
-physics using the Gibbs free energies of the condensates (Huang et al., in prep.).
+physics using the Gibbs free energies of the condensates <a href="https://doi.org/10.1051/0004-6361/202451112">Huang et al. (2024)</a>.
 Multiple condensates can grow on the same particles, and each condensate takes the atoms
 it needs from the gas consistently.</p>
 <table>
@@ -2019,7 +2019,7 @@ it needs from the gas consistently.</p>
 <tr>
 <td><code>usefsed</code></td>
 <td><code>.false.</code></td>
-<td>Use an f<sub>sed</sub> sedimentation parameterisation (Rooney et al. 2022)</td>
+<td>Use an f<sub>sed</sub> sedimentation parameterisation</td>
 </tr>
 <tr>
 <td><code>fsed</code></td>
@@ -2033,6 +2033,7 @@ it needs from the gas consistently.</p>
 </tr>
 </tbody>
 </table>
+<p>When <code>cloud&lt;n&gt;:globalKzz=.true.</code> the profile will be used as described in <a href="../chemistry/">Composition and chemistry</a></p>
 <p>Available condensates:</p>
 <table>
 <thead>
@@ -2068,6 +2069,10 @@ it needs from the gas consistently.</p>
 </tr>
 </tbody>
 </table>
+<p>In addition, when the crystalline silicates <code>FORSTERITE</code>, <code>ENSTATITE</code>, <code>FAYALITE</code>, or <code>FERROSILITE</code> 
+are added to the species list along with their amorphous counterparts, the crystallinity of that 
+silicate component is computed from the temperature dependent crystallization timescale assuming 
+silicate condense amorphous.</p>
 <p>The refractive indices are taken from <code>$HOME/ARCiS/Data/refind/</code>; new condensates may
 require an update of the data directory. Some species use the optical properties of a
 related material (e.g. CaSiO<sub>3</sub> uses MgSiO<sub>3</sub>, NH<sub>4</sub>SH uses
@@ -2105,7 +2110,7 @@ are always computed with DHS and effective medium theory.</p>
 <p>All parameters of the cloud are read from the file. The type <code>FILEDRIFT</code> reads a cloud
 structure in the output format of the DRIFT cloud code.</p>
 <div class="admonition question">
-<p class="admonition-title">To review</p>
+<p class="admonition-title">Todo</p>
 <p>The file formats for <code>FILE</code> and <code>FILEDRIFT</code> are still to be documented.</p>
 </div>
 <h2 id="parameterised-clouds">Parameterised clouds<a class="headerlink" href="#parameterised-clouds" title="Permanent link">&para;</a></h2>
@@ -2167,8 +2172,7 @@ optical depth,</p>
 \frac{\partial \tau}{\partial P}=C\,\exp\left(\frac{P-P_\tau}{\Phi}\right).
 \]</div>
 <p>In hydrostatic equilibrium <span class="arithmatex">\(\partial\tau/\partial P = \kappa/g\)</span>, with
-<span class="arithmatex">\(\kappa = f_{\rm cloud}\kappa_{\rm cloud}\)</span>, so that (ignoring gradients in
-<span class="arithmatex">\(f_{\rm cloud}\)</span> and <span class="arithmatex">\(\kappa_{\rm cloud}\)</span>)</p>
+<span class="arithmatex">\(\kappa = f_{\rm cloud}\kappa_{\rm cloud}\)</span>, so that </p>
 <div class="arithmatex">\[
 f_{\rm cloud}=\frac{g}{\kappa_{\rm cloud}}\,C\,\exp\left(\frac{P-P_\tau}{\Phi}\right),
 \]</div>
@@ -2201,11 +2205,6 @@ the top of the atmosphere.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonition question">
-<p class="admonition-title">To review</p>
-<p>The old documentation used <code>Ptop</code> for the τ = 1 pressure of a <code>DECK</code>; the current
-code uses <code>Ptau</code> (<code>Ptop</code> is not used by <code>DECK</code>).</p>
-</div>
 <h3 id="gauss-and-halfgauss"><code>GAUSS</code> and <code>HALFGAUSS</code><a class="headerlink" href="#gauss-and-halfgauss" title="Permanent link">&para;</a></h3>
 <p>A layer with a Gaussian profile in log P around <code>P</code> with width <code>dP</code>, total optical depth
 <code>tau</code> at <code>lam_ref</code>, and opacity power law <code>xi</code>. <code>HALFGAUSS</code> has a much steeper fall-off
@@ -2445,12 +2444,6 @@ file with <code>lnkfile&lt;n&gt;</code>:</p>
 <code>SiO2</code>/<code>QUARTZ</code>, <code>A-SiO2</code>, <code>SiO</code>, <code>SiC</code>, <code>IRON</code>, <code>CORRUNDUM</code>, <code>FeO</code>, <code>MgO</code>,
 <code>RUTILE</code>/<code>BROOKITE</code>/<code>TiO2</code>, <code>WATER</code>, <code>H2SO4</code>, <code>CARBON</code>, <code>SOOT</code>, <code>ORGANICS</code>, <code>THOLIN</code>,
 <code>optEC</code>.</p>
-<div class="admonition question">
-<p class="admonition-title">To review</p>
-<p>In the old user guide the lnk-file examples did not set <code>material&lt;n&gt;='FILE'</code>.
-From the code (<code>SetupMaterialCloud</code>) this appears to be required — the default
-material <code>AUTO</code> stops with <em>Material unknown</em>. Please confirm.</p>
-</div>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>A parameterised cloud layer reaching τ = 1 at 1 bar with a steep opacity increase:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="na">cloud1:type</span><span class="o">=</span><span class="s">&#39;LAYER&#39;</span>

@@ -51,6 +51,10 @@ All sub-keywords are listed in the [keyword reference](../reference/keywords.md#
 By default emission data (`emis`) are compared in log space (`logemis=.true.`); this
 requires positive fluxes.
 
+!!! warning "Warning"
+	The observation types `lightcurve` and `tprofile` are not straightforward to use
+	and it is thus not adviced to use them unless the user knows exactly what is going on.
+
 ### Observation files
 
 Spectra are plain text files with one wavelength bin per line:
@@ -85,7 +89,7 @@ Lines that cannot be read (e.g. a header) are skipped.
 
 Each `fitpar:keyword=` line starts a new parameter; the following `fitpar:` lines
 apply to it. **Any input keyword can be retrieved**, including molecule abundances,
-cloud parameters (`cloud1:SigmaDot`), temperature-profile parameters and planet
+cloud parameters (e.g. `cloud1:SigmaDot`), temperature-profile parameters and planet
 parameters.
 
 | Sub-keyword | Default | Meaning |
@@ -125,7 +129,7 @@ Select the sampler with `retrievaltype`:
 | `MN` (default) | MultiNest nested sampling ([Feroz et al. 2009](../citing.md)) |
 | `MC` / `MCMC` | Markov chain Monte Carlo |
 | `OE` | Optimal estimation (gradient-based, quick) |
-| `FULL` | MultiNest followed by MCMC |
+| `FULL` | Gradient based method followed by MCMC |
 
 ### MultiNest options
 
@@ -147,7 +151,7 @@ Select the sampler with `retrievaltype`:
 
 | Keyword | Default | Meaning |
 |---|---|---|
-| `npop` | 30 | Number of walkers / burn-in |
+| `nburn` | 30 | Number of burn-in steps |
 | `npost` | 1000 | Number of posterior samples |
 | `epsinit` | 0.1 | Initial step size |
 | `computelogZ` | `.false.` | Compute the evidence by thermodynamic integration (see [MCMC evidence](../theory/mcmc-evidence.md)) |
@@ -162,16 +166,15 @@ Select the sampler with `retrievaltype`:
 | `fullcovmat` | Use the full covariance matrix |
 | `faircoverage` | Weight data so that densely sampled regions do not dominate |
 
-!!! question "To review"
+!!! question "Todo"
     The correlated-noise model (`cov_*`, localised components `cov_*_loc`) and the
     scaling/offset options (`obs<n>:scaling`, `slope`, `offset`) need a description of
-    the equations used.
+    the equations used. It is based on the work by [Rotman et al. (2025)](https://iopscience.iop.org/article/10.3847/1538-4357/adef04)
 
 ## Output of a retrieval
 
 | File | Content |
 |---|---|
-| `retrieval` | Best fit and uncertainties of all parameters |
 | `bestfit.dat` | Input file of the best-fit model — rerun with `ARCiS bestfit.dat -o best` |
 | `post_equal_weights.dat` | MultiNest posterior samples (equal weights) |
 | `stats.dat`, `summary.txt`, `.txt` | Other MultiNest output |
@@ -179,7 +182,6 @@ Select the sampler with `retrievaltype`:
 | `Wolk.dat` | All models computed during the retrieval (`writeWolk`) |
 | `trans`, `emis`, … | Spectra of the best-fit model |
 | `obs001`, `obs002`, … | Data and best-fit model at the data points |
-| `limits.dat`, `trans_limits.dat`, `PT_limits`, … | Confidence intervals of spectra and structure |
 
 ## Post-processing
 
@@ -195,3 +197,12 @@ writes confidence intervals of the spectra and the P–T structure, the median p
 including derived C/O and metallicity (`retrieval`), an input file for the median probability model
 (`mpm.dat`), and `pew_output.dat` for corner plots (see
 `Example/makecornerplot_pew.py`).
+
+Files created after post-processing this way:
+
+| File | Content |
+|---|---|
+| `retrieval` | Median values and uncertainties of all parameters |
+| `pew_output.dat` | posterior samples used in the run |
+| `XXXX_limits.dat`, `trans_limits.dat`, `PT_limits`, … | Confidence intervals of spectra and structure |
+

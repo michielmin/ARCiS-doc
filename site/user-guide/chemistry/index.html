@@ -867,6 +867,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Vertical mixing (Kzz)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-physical-kzz-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More physical Kzz profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="More physical Kzz profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#self-consistent-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-consistent profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixing-from-convection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixing from convection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-complex-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More complex descriptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1589,6 +1645,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Vertical mixing (Kzz)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-physical-kzz-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More physical Kzz profiles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="More physical Kzz profiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#self-consistent-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-consistent profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixing-from-convection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixing from convection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-complex-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More complex descriptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1721,7 +1833,7 @@ CO<sub>2</sub>–H<sub>2</sub>O and NH<sub>3</sub>–N<sub>2</sub> networks are 
 vertical mixing following <a href="../../citing/">Kawashima &amp; Min (2021)</a>. It requires
 <code>chemistry=.true.</code> and uses the global K<sub>zz</sub> profile. The species needed for the
 disequilibrium network are added automatically.</p>
-<h2 id="vertical-mixing-kzz">Vertical mixing (Kzz)<a class="headerlink" href="#vertical-mixing-kzz" title="Permanent link">&para;</a></h2>
+<h2 id="vertical-mixing-kzz">Vertical mixing (K<sub>zz</sub>)<a class="headerlink" href="#vertical-mixing-kzz" title="Permanent link">&para;</a></h2>
 <p>Vertical mixing is used by disequilibrium chemistry and by self-consistent clouds. By
 default a constant <code>Kzz</code> is used (5×10<sup>8</sup> cm² s⁻¹). A pressure-dependent
 profile is used when <code>Kzz_deep</code> and <code>Kzz_1bar</code> are set (<code>Kzz_1bar</code> is negative by
@@ -1781,11 +1893,58 @@ K_{zz}^{\rm 1bar} P^{|\gamma_{K}|} \right] \right]
 <p>Clouds can use their own homogeneous K<sub>zz</sub> (<code>cloud1:Kzz</code>, with
 <code>cloud1:globalKzz=.false.</code>) or follow the global profile (<code>cloud1:globalKzz=.true.</code>).
 Disequilibrium chemistry always uses the global profile.</p>
-<div class="admonition question">
-<p class="admonition-title">To review</p>
-<p>Additional options <code>complexKzz</code>, <code>computeKzz</code> (<code>SCKzz</code>) and <code>convectKzz</code> exist in
-the code. Their description still has to be added.</p>
-</div>
+<h3 id="more-physical-kzz-profiles">More physical K<sub>zz</sub> profiles<a class="headerlink" href="#more-physical-kzz-profiles" title="Permanent link">&para;</a></h3>
+<h4 id="self-consistent-profile">Self-consistent profile<a class="headerlink" href="#self-consistent-profile" title="Permanent link">&para;</a></h4>
+<p>The K<sub>zz</sub> profile can also be computed in a self-consistent way from the equation
+given in <a href="https://ui.adsabs.harvard.edu/abs/2022ExA....53..279M/abstract">Moses et al. (2022)</a>.
+The implementation of that equation in ARCiS is as follow</p>
+<div class="arithmatex">\[
+K_{zz}^{\rm Moses}=\left(\frac{K_{zz}}{\sqrt{P\textrm{[bar]}}}\right)\left(\frac{H_\textrm{1mbar}}{620\textrm{km}}\right)\left(\frac{T_{\rm planet}}{1450\textrm{K}}\right)^4
+\]</div>
+<p>where <span class="arithmatex">\(T_{\rm planet}\)</span> is computed from the internal and irradiation temperature of the planet.</p>
+<p>The final pressure dependent <span class="arithmatex">\(K_{zz}^P\)</span> used is also capped</p>
+<div class="arithmatex">\[
+K_{zz}^P = \left(\frac{1}{K_{zz}^{\rm Moses} + K_{zz}^{\rm offset}} + \frac{1}{K_{zz}^{\rm max}}\right)^{-1}
+\]</div>
+<p>Parameters to set are:</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Symbol</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>computeKzz</code></td>
+<td>switch</td>
+<td><code>.false.</code></td>
+</tr>
+<tr>
+<td><code>Kzz</code></td>
+<td>scaling K<sub>zz</sub></td>
+<td>5×10<sup>8</sup> cm² s⁻¹</td>
+</tr>
+<tr>
+<td><code>Kzz_offset</code></td>
+<td><span class="arithmatex">\(K_{zz}^{\rm offset}\)</span></td>
+<td>10<sup>4</sup> cm² s⁻¹</td>
+</tr>
+<tr>
+<td><code>Kzz_max</code></td>
+<td>upper limit</td>
+<td>10<sup>12</sup> cm² s⁻¹</td>
+</tr>
+</tbody>
+</table>
+<h4 id="mixing-from-convection">Mixing from convection<a class="headerlink" href="#mixing-from-convection" title="Permanent link">&para;</a></h4>
+<p>When <code>computeT=.true.</code> also the contribution from convection can be added to the <span class="arithmatex">\(K_{zz}\)</span> profile.
+For this set <code>convectKzz=.true.</code> (default is <code>.false.</code>).</p>
+<h4 id="more-complex-descriptions">More complex descriptions<a class="headerlink" href="#more-complex-descriptions" title="Permanent link">&para;</a></h4>
+<p>Using the switch <code>complexKzz=.true.</code> two more terms are added to the mixing profile.</p>
+<p>The first is micro turbulence according to Eq. 16 in <a href="https://doi.org/10.1051/0004-6361/201936281">Woitke et al. 2020</a>.</p>
+<p>The second is a scaling of the diffusion for cloud particles as given by Eq. 21 in <a href="https://doi.org/10.1051/0004-6361/201936281">Woitke et al. 2020</a>.</p>
 <h2 id="parameterised-photochemistry">Parameterised photochemistry<a class="headerlink" href="#parameterised-photochemistry" title="Permanent link">&para;</a></h2>
 <p>ARCiS can mimic photochemistry by converting molecules or atoms high in the atmosphere
 into other molecules or haze. The conversion efficiency of a reaction is</p>

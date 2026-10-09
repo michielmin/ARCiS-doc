@@ -66,7 +66,7 @@ vertical mixing following [Kawashima & Min (2021)](../citing.md). It requires
 `chemistry=.true.` and uses the global K<sub>zz</sub> profile. The species needed for the
 disequilibrium network are added automatically.
 
-## Vertical mixing (Kzz)
+## Vertical mixing (K<sub>zz</sub>)
 
 Vertical mixing is used by disequilibrium chemistry and by self-consistent clouds. By
 default a constant `Kzz` is used (5×10<sup>8</sup> cm² s⁻¹). A pressure-dependent
@@ -102,9 +102,47 @@ Clouds can use their own homogeneous K<sub>zz</sub> (`cloud1:Kzz`, with
 `cloud1:globalKzz=.false.`) or follow the global profile (`cloud1:globalKzz=.true.`).
 Disequilibrium chemistry always uses the global profile.
 
-!!! question "To review"
-    Additional options `complexKzz`, `computeKzz` (`SCKzz`) and `convectKzz` exist in
-    the code. Their description still has to be added.
+### More physical K<sub>zz</sub> profiles
+
+#### Self-consistent profile
+
+The K<sub>zz</sub> profile can also be computed in a self-consistent way from the equation
+given in [Moses et al. (2022)](https://ui.adsabs.harvard.edu/abs/2022ExA....53..279M/abstract).
+The implementation of that equation in ARCiS is as follow
+
+\[
+K_{zz}^{\rm Moses}=\left(\frac{K_{zz}}{\sqrt{P\textrm{[bar]}}}\right)\left(\frac{H_\textrm{1mbar}}{620\textrm{km}}\right)\left(\frac{T_{\rm planet}}{1450\textrm{K}}\right)^4
+\]
+
+where $T_{\rm planet}$ is computed from the internal and irradiation temperature of the planet.
+
+The final pressure dependent \(K_{zz}^P\) used is also capped
+
+\[
+K_{zz}^P = \left(\frac{1}{K_{zz}^{\rm Moses} + K_{zz}^{\rm offset}} + \frac{1}{K_{zz}^{\rm max}}\right)^{-1}
+\]
+
+Parameters to set are:
+
+| Keyword | Symbol | Default |
+|---|---|---|
+| `computeKzz` | switch | `.false.` |
+| `Kzz` | scaling K<sub>zz</sub> | 5×10<sup>8</sup> cm² s⁻¹ |
+| `Kzz_offset` | \(K_{zz}^{\rm offset}\) | 10<sup>4</sup> cm² s⁻¹ |
+| `Kzz_max` | upper limit | 10<sup>12</sup> cm² s⁻¹ |
+
+#### Mixing from convection
+
+When `computeT=.true.` also the contribution from convection can be added to the $K_{zz}$ profile.
+For this set `convectKzz=.true.` (default is `.false.`).
+
+#### More complex descriptions
+
+Using the switch `complexKzz=.true.` two more terms are added to the mixing profile.
+
+The first is micro turbulence according to Eq. 16 in [Woitke et al. 2020](https://doi.org/10.1051/0004-6361/201936281).
+
+The second is a scaling of the diffusion for cloud particles as given by Eq. 21 in [Woitke et al. 2020](https://doi.org/10.1051/0004-6361/201936281).
 
 ## Parameterised photochemistry
 

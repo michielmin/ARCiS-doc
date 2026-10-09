@@ -1583,6 +1583,7 @@ value β that sets how much irradiation that location effectively receives. The 
 diffusion (and advection) equation with β<sub>⋆</sub> as source term, giving the final
 β-map. Instead of computing a 1D model for every cell, <code>n3D</code> 1D models are computed for
 a range of β values and interpolated.</p>
+<p>For example:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">run3D</span><span class="o">=</span><span class="s">.true.</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">n3D</span><span class="o">=</span><span class="s">10</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">night2day</span><span class="o">=</span><span class="s">0.5</span>
@@ -1651,6 +1652,15 @@ a range of β values and interpolated.</p>
 </table>
 <p>Retrieval parameters can vary across the planet with <code>par3d</code> keywords, interpolating
 between a nightside and a dayside value.</p>
+<p>For emission spectra including scattering it is adviced to always use ARCiS in 3D mode.
+If you do not want a 3D model, it is best to use:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">run3D</span><span class="o">=</span><span class="s">.true.</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">n3D</span><span class="o">=</span><span class="s">3</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">night2day</span><span class="o">=</span><span class="s">1</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">hotspotshift</span><span class="o">=</span><span class="s">0</span>
+</code></pre></div>
+<p>These settings effectively create a fully homogeneous (1D) planet with minimal overhead.
+However, it does trigger the more accurate and fast scattering mode.</p>
 <h2 id="energy-balance-with-varying-albedo">Energy balance with varying albedo<a class="headerlink" href="#energy-balance-with-varying-albedo" title="Permanent link">&para;</a></h2>
 <p>When the albedo differs between the day- and nightside (for example due to clouds that
 only form on the nightside), the β-map is rescaled iteratively to conserve energy
@@ -1660,9 +1670,9 @@ only form on the nightside), the β-map is rescaled iteratively to conserve ener
 <code>full3Ddir='&lt;directory&gt;'</code> (this sets <code>readFull3D=.true.</code>). The number of 1D models must
 then equal <code>nlong × nlatt</code>; the β-map settings are ignored.</p>
 <div class="admonition question">
-<p class="admonition-title">To review</p>
+<p class="admonition-title">Todo</p>
 <p>The file format expected in <code>full3Ddir</code>, the <code>deepredist</code> options and the
-<code>par3d</code> sub-keywords need more detail.</p>
+<code>par3d</code> sub-keywords still need to be described.</p>
 </div>
 
 
